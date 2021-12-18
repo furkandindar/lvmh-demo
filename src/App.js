@@ -1,57 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
+import ModelViewer from "./components/ModelViewer";
+import BulgariWatch from "./components/BulgariWatch";
+import BulgariBracelet from "./components/BulgariBracelet";
+import BulgariRing from "./components/BulgariRing";
+import LVEarrings from "./components/LVEarrings";
+import LVViperNecklace from "./components/LVViperNecklace";
+import LVNecklace from "./components/LVNecklace";
+import { Routes, Route } from "react-router-dom";
+import Grid from '@mui/material/Grid';
+import Header from "./components/Header";
+import Content from "./components/Content";
+import Typography from '@mui/material/Typography';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    // <React.Fragment>
+    //   <Routes>
+    //     <Route path="/" element={<ModelViewer/>}></Route>
+    //     <Route path="/bulgari_watch" element={<BulgariWatch/>}></Route>
+    //     <Route path="/bulgari_bracelet" element={<BulgariBracelet/>}></Route>
+    //     <Route path="/bulgari_ring" element={<BulgariRing/>}></Route>
+    //     <Route path="/lv_earring" element={<LVEarrings/>}></Route>
+    //     <Route path="/lv_viper_necklace" element={<LVViperNecklace/>}></Route>
+    //     <Route path="/lv_necklace" element={<LVNecklace/>}></Route>
+    //   </Routes>
+      
+    // </React.Fragment>
+      <Grid container direction="column">
+      <Grid item>
+        <Header/>
+      </Grid>
+      <Grid item container>
+        <Grid item xs={1} sm={1} lg={2}></Grid>
+        <Grid item xs={10} sm={10} lg={8}>
+          <Content/>
+        </Grid>
+        <Grid item xs={1} sm={1} lg={2}></Grid>
+      </Grid>
+    </Grid>
+    
   );
 }
 

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background:"#f0ede8";
 }
 
 .App-logo {
@@ -15,6 +16,7 @@
 
 .App-header {
   min-height: 100vh;
+  background:"#f0ede8";
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,4 +38,9 @@
   100% {
     transform: translateY(0px);
   }
+}
+
+model-viewer{
+  width: 100%;
+  height: 100%;
 }
