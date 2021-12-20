@@ -18,7 +18,7 @@ function App() {
   return (
     // <React.Fragment>
     //   <Routes>
-    //     <Route path="/" element={<ModelViewer/>}></Route>
+    //     {/* <Route path="/" element={<ModelViewer/>}></Route> */}
     //     <Route path="/bulgari_watch" element={<BulgariWatch/>}></Route>
     //     <Route path="/bulgari_bracelet" element={<BulgariBracelet/>}></Route>
     //     <Route path="/bulgari_ring" element={<BulgariRing/>}></Route>
@@ -28,14 +28,23 @@ function App() {
     //   </Routes>
       
     // </React.Fragment>
-      <Grid container direction="column">
+    <Grid container direction="column">
       <Grid item>
         <Header/>
       </Grid>
       <Grid item container>
-        <Grid item xs={1} sm={1} lg={2}></Grid>
-        <Grid item xs={10} sm={10} lg={8}>
-          <Content/>
+        <Grid item xs={1} lg={2}></Grid>
+        <Grid item xs={10} lg={8}>
+          {/* <Content/> */}
+          <Routes>
+         <Route path="/" element={<Content/>}></Route>
+         <Route path="/bulgari_watch" element={<BulgariWatch/>}></Route>
+         <Route path="/serpenti_viper_bracelet" element={<BulgariBracelet/>}></Route>
+         <Route path="//b_zero1_ring" element={<BulgariRing/>}></Route>
+         <Route path="/serpenti_viper_boucles" element={<LVEarrings/>}></Route>
+         <Route path="/serpenti_viper_necklace" element={<LVViperNecklace/>}></Route>
+         <Route path="/le_magnifiche_creazioni" element={<LVNecklace/>}></Route>
+       </Routes>
         </Grid>
         <Grid item xs={1} sm={1} lg={2}></Grid>
       </Grid>

@@ -6,9 +6,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import ViewInArIcon from '@mui/icons-material/ViewInAr';
+import {useNavigate} from "react-router-dom";
 
 function ProductCard(props) {
-    const {name, imgUrl, alt} = props;
+    const {name, imgUrl, alt, linkTo} = props;
+    let navigate = useNavigate();
     return (
         <Card>
                 <CardMedia
@@ -22,7 +24,7 @@ function ProductCard(props) {
                     </Typography>
                 </CardContent>
                 <CardActions style={{justifyContent:"center"}}>
-                    <Button sx={{color: "#85715D"}} size="large" endIcon={<ViewInArIcon/>}>View</Button>
+                    <Button sx={{color: "#85715D"}} size="large" endIcon={<ViewInArIcon/>} onClick={() => {navigate(linkTo);}}>View</Button>
                 </CardActions>
         </Card>
     )
