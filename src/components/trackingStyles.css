@@ -1,0 +1,13 @@
+.outer-div{
+    position: relative;
+    height: 480px;
+    width: 640px;
+}
+  
+.canvas-wrapper{
+    position: absolute;
+}
+  
+.webcam-wrapper{
+    position: absolute;
+}
