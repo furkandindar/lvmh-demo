@@ -17,10 +17,10 @@ function App() {
     <Grid container direction="column" spacing={3}>
       <Grid item container >
       <Grid item xs={1} lg={2}></Grid>
-        <Grid item xs={12} lg={8}>
+        <Grid item xs={10} lg={8}>
           <Header/>
         </Grid>
-        <Grid item xs={1} sm={1} lg={2}></Grid>
+        <Grid item xs={1} lg={2}></Grid>
       </Grid>
       <Grid item container>
         <Grid item xs={1} lg={2}></Grid>

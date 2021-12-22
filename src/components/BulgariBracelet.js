@@ -80,7 +80,7 @@ var rotateX = 0;
 var hand_info = null;
 
 function Model3D(props){
-    return <model-viewer src="https://duz6y1s4uiy9h.cloudfront.net/Bulgari_bracelet_11.glb"
+    return <model-viewer src="https://duz6y1s4uiy9h.cloudfront.net/Bulgari_bracelet_MV.glb"
     environment-image="https://duz6y1s4uiy9h.cloudfront.net/dresden_square_1k.hdr"
     poster="https://duz6y1s4uiy9h.cloudfront.net/bulgari_bracelet_poster.webp"
     ar ar-modes="webxr scene-viewer quick-look"
