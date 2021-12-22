@@ -19,7 +19,7 @@ function ProductCard(props) {
                     image={imgUrl}
                 />
                 <CardContent style={{textAlign:"center", padding:0}}>
-                    <Typography variant="subtitle1" component="div">
+                    <Typography fontFamily="monospace" variant="subtitle1" component="div">
                     {name}
                     </Typography>
                 </CardContent>

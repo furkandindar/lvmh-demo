@@ -80,7 +80,20 @@ var rotateX = 0;
 var hand_info = null;
 
 function Model3D(props){
-    return <model-viewer src="https://ttb-dev.s3.amazonaws.com/LV_Watch_web_Occluderless.glb" ios-src="https://ttb-dev.s3.amazonaws.com/Bvlgari_Web_V6.usdz" environment-image="neutral" ar ar-modes="webxr scene-viewer quick-look" seamless-poster shadow-intensity="1" camera-controls></model-viewer>;
+    return <model-viewer
+       src="https://ttb-dev.s3.amazonaws.com/LV_Watch_web_Occluderless.glb"
+       ios-src="https://ttb-dev.s3.amazonaws.com/Bvlgari_Web_V6.usdz"
+       camera-orbit="0deg 15deg 105%"
+       min-camera-orbit="auto 0deg auto"
+       max-camera-orbit="auto 180deg auto"
+       max-field-of-view="90deg"
+       min-field-of-view="0deg"
+       environment-image="neutral" 
+       ar ar-modes="webxr scene-viewer quick-look"
+       seamless-poster 
+       shadow-intensity="1" 
+       camera-controls>
+       </model-viewer>;
 }
 
 function WristTracking(props){
