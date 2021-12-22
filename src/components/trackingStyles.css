@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;900&display=swap');
+
 .outer-div{
     position: relative;
     height: 480px;
@@ -12,30 +14,17 @@
     position: absolute;
 }
 
-.MuiButton-root:hover{
-    background: red;
-}
-
-.MuiButtonBase-root:hover{
-    background: red;
-}
-
 .bg-gradient1 span,
 .bg-gradient1:before {
-  background: #52A0FD;
-  background: linear-gradient(to right, #52A0FD 0%, #00e2fa 80%, #00e2fa 100%);
+  background: #fffb64;
+  /*background: linear-gradient(to right, #52A0FD 0%, #00e2fa 80%, #00e2fa 100%);*/
 }
 
-.bg-gradient2 span,
-.bg-gradient2:before {
-  background: #44ea76;
-  background: linear-gradient(to right, #44ea76 0%, #39fad7 80%, #39fad7 100%);
-}
+
 
 .bg-gradient3 span,
 .bg-gradient3:before {
-  background: #fa6c9f;
-  background: linear-gradient(to right, #fa6c9f 0%, #ffe140 80%, #ffe140 100%);
+  background: #fffb64;
 }
 
 /* General */
@@ -56,23 +45,23 @@ a:hover, a:focus, a:active {
 /* fancy Button */
 .fancy-button {
   display: inline-block;
-  margin: 30px;
+  margin: 10px; /* WILL BE UPDATED */
   font-family: "Jost", Helvetica, Arial, sans-serif;
   font-weight: 600;
-  font-size: 17px;
+  font-size: 12px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: #4f464b;
   position: relative;
 }
 .fancy-button:before {
   content: "";
   display: inline-block;
-  height: 40px;
+  height: 30px;
   position: absolute;
   bottom: -5px;
-  left: 30px;
-  right: 30px;
+  left: 20px;
+  right: 20px;
   z-index: -1;
   border-radius: 30em;
   filter: blur(20px) brightness(0.95);
@@ -81,13 +70,22 @@ a:hover, a:focus, a:active {
 }
 .fancy-button i {
   margin-top: -1px;
-  margin-right: 20px;
+  margin-right: 10px;
   font-size: 1.265em;
   vertical-align: middle;
 }
+.fancy-button img {
+	position: relative;
+   margin-top: -3px;
+	margin-right: 10px;
+   top:0;
+	left:0;
+	height: 16px;
+   width: 16px;
+}
 .fancy-button span {
   display: inline-block;
-  padding: 18px 60px;
+  padding: 12px 30px;
   border-radius: 50em;
   position: relative;
   z-index: 2;
@@ -96,10 +94,10 @@ a:hover, a:focus, a:active {
   transition: all 0.3s ease-out;
 }
 .fancy-button:focus, .fancy-button:active {
-  color: #ffffff;
+  color: #4f464b;
 }
 .fancy-button:hover {
-  color: #ffffff;
+  color: #4f464b;
 }
 .fancy-button:hover span {
   filter: brightness(1.05) contrast(1.05);

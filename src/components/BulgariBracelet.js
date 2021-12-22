@@ -197,15 +197,19 @@ function BulgariBracelet() {
     let navigate = useNavigate();
     const [renderWristTracking, setRenderWristTracking] = useState(false);
     let button;
-//     const theme = useTheme();
-//   const isMobile = !useMediaQuery(theme.breakpoints.up('sm'));
+    const themeResponsive = useTheme();
+    const isMobile = !useMediaQuery(themeResponsive.breakpoints.up('sm'));
 
   //onClick={() => {setRenderWristTracking(!renderWristTracking)}}
 
     if(renderWristTracking){
-        button = <a href="#" class="fancy-button bg-gradient1" onClick={() => {setRenderWristTracking(!renderWristTracking)}}><span><i class="fa fa-wheelchair-alt"></i>See in your space</span></a>
+        button = <a href="#" class="fancy-button bg-gradient1" onClick={() => {setRenderWristTracking(!renderWristTracking)}}><span><img src="./viewinar_01.png"/>See in your space</span></a>
     }else{
-        button = <a href="#" class="fancy-button bg-gradient3" onClick={() => {setRenderWristTracking(!renderWristTracking)}}><span><i class="fa fa-envelope"></i>TRY ON</span></a>
+        if(isMobile){
+            button = <a href="https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=ea42f6c40d024548a2c2b96a4d336d43&metadata=01" class="fancy-button bg-gradient3"><span><img src="./snap_01.png"/>TRY ON</span></a>
+        }else{
+            button = <a href="#" class="fancy-button bg-gradient3" onClick={() => {setRenderWristTracking(!renderWristTracking)}}><span><img src="./snap_01.png"/>TRY ON</span></a>
+        }
     }
 
     return (
@@ -220,7 +224,7 @@ function BulgariBracelet() {
                     <Button disableRipple={true} sx={{color: "#4f464b", "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Products</Button>
                 </Grid>
                 <Grid item xs={8}>
-                    <Paper style={{height:"75vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}}>
+                    <Paper style={{height:"70vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}}>
                         {renderWristTracking ? <WristTracking renderWristTracking={renderWristTracking}/> : <Model3D/>}
                     </Paper>
                 </Grid>
