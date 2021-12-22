@@ -16,33 +16,35 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Environment, OrbitControls, Html, useProgress } from "@react-three/drei";
 import "../components/trackingStyles.css";
 
-import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 function Loader() {
     const { progress } = useProgress()
-    return <Html center>{progress} % loaded</Html>
+    return <Html center>
+      <Box sx={{ display: 'flex' }}>
+      <CircularProgress />
+    </Box>
+    </Html>
 }
 
 const Model = () => {
     //https://duz6y1s4uiy9h.cloudfront.net/RingTransformed.glb
-    const gltf = useLoader(GLTFLoader, "https://duz6y1s4uiy9h.cloudfront.net/Bulgari_Ring_V2.glb");
-    //const gltfSkeleton = useLoader(GLTFLoader, "./model.glb");
+    const gltf = useLoader(GLTFLoader, "https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_B.zero1_Ring_occluder.glb");
+
     const ref = useRef();
     const mesh = gltf.scene;
   
     
-    //console.log(gltfSkeleton.scene);
-    //const mesh_phong = new THREE.MeshPhongMaterial();
   
-    //mesh.children[2].material.colorWrite = false;
-    //mesh.children[0].children[1].material.colorWrite = false;
+    mesh.children[0].material.colorWrite = false;
+    console.log(mesh);
   
     useFrame((state, delta) => {
       //console.log(gltf.scene);
       
       ref.current.position.x = (landmark_x - 0.5);
-      ref.current.position.y = -(landmark_y - 0.5)*0.75;
+      ref.current.position.y = -(landmark_y - 0.52)*0.75;
       //ref.current.position.z = -1;
       ref.current.rotation.z = -(rotateZ);
       ref.current.rotation.x = rotateX + Math.PI/2;
@@ -59,9 +61,9 @@ const Model = () => {
           ref.current.rotation.y = rotateY + Math.PI - Math.PI/16;
         }
       }
-      ref.current.scale.x = scale/5.1;
-      ref.current.scale.y = scale/5.1;
-      ref.current.scale.z = scale/5.1;
+      ref.current.scale.x = scale*10;
+      ref.current.scale.y = scale*10;
+      ref.current.scale.z = scale*10;
     })
   
     return (
@@ -84,10 +86,23 @@ var rotateX = 0;
 var hand_info = null;
 
 function Model3D(props){
-    return <model-viewer src="https://duz6y1s4uiy9h.cloudfront.net/Bulgari_Ring_V2.glb" environment-image="neutral" ar ar-modes="webxr scene-viewer quick-look" seamless-poster shadow-intensity="1" camera-controls></model-viewer>;
+    return <model-viewer 
+    src="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_B.zero1_Ring_final_version.glb"
+    poster="https://duz6y1s4uiy9h.cloudfront.net/bulgari_ringposter.webp"
+    environment-image="https://duz6y1s4uiy9h.cloudfront.net/mix_hdr2.hdr" 
+    ar ar-modes="webxr scene-viewer quick-look" 
+    shadow-intensity="1" 
+    exposure="2" 
+    max-field-of-view="90deg" 
+    min-camera-orbit="auto auto 0.04054m" 
+    min-field-of-view="90deg" 
+    camera-orbit="-136.1deg 60.04deg auto"
+    camera-controls></model-viewer>;
 }
 
 function RingTracking(props){
+  const canvasRef= useRef(null);
+  console.log(canvasRef);
     const webcamRef = useRef(null);
   var camera = null;
   const [showHand, setshowHand] = useState(true);
@@ -177,10 +192,10 @@ function RingTracking(props){
                 <h1>SHOW YOUR HAND</h1>
         </div> : null} */}
           <Webcam className="webcam-wrapper" ref={webcamRef} mirrored={true}/>
-          <Canvas camera={{fov:75, position: [0, 0, 0.5] }} className="canvas-wrapper">
+          <Canvas toneMappingExposure={2} ref={canvasRef} camera={{fov:75, position: [0, 0, 0.5] }} className="canvas-wrapper">
             <Suspense fallback={<Loader />}>
               <Model position={[0,0,0]}/>
-              <Environment preset="studio"></Environment>
+              <Environment files="https://duz6y1s4uiy9h.cloudfront.net/mix_hdri_exp2.hdr"></Environment>
               <OrbitControls></OrbitControls>
             </Suspense>
           </Canvas>

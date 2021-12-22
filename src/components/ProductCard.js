@@ -21,8 +21,7 @@ function ProductCard(props) {
     let navigate = useNavigate();
     return (
         <ThemeProvider theme={theme}>
-        {/* sx={{borderRadius:"1px", border:"1px solid black", boxShadow:"none"}} */}
-            <Card elevation={3}>
+            <Card sx={{border:"1px solid #4f464b", boxShadow:"none", background:"transparent"}}>
                 <CardMedia
                     component="img"
                     alt={alt}

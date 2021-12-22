@@ -6,7 +6,7 @@ export default [
         linkTo: "/serpenti_viper_bracelet"
     },
     {
-        name : "SERPENTI VIPER BOUCLES",
+        name : "SERPENTI VIPER BOUCLES D’OREILLES",
         imgUrl: "https://media2.bulgari.com/f_auto,q_auto/production/dwa5ea468e/images/images/493613.png",
         alt: "serpenti_viper_boucles",
         linkTo: "/serpenti_viper_boucles"

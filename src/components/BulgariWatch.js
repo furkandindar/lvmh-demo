@@ -47,18 +47,18 @@ const Model = () => {
         // modelRef.current.rotation.x = Math.PI/2;
 
         if (hand_info === "Right") {
-            modelRef.current.rotation.z = -(rotateZ) + Math.PI/2;
+            modelRef.current.rotation.z = -(rotateZ) + Math.PI/2 + Math.PI/16;
             if (rotateY > 0) {
                 modelRef.current.rotation.y = rotateY - Math.PI/16;
               } else {
                 modelRef.current.rotation.y = rotateY + Math.PI - Math.PI/16;
               }
         } else {
-            modelRef.current.rotation.z = -(rotateZ) + Math.PI/2;
+            modelRef.current.rotation.z = -(rotateZ) + Math.PI/2 - Math.PI/16;
             if (rotateY < 0) {
                 modelRef.current.rotation.y = rotateY + Math.PI/16;
               } else {
-                modelRef.current.rotation.y = rotateY + Math.PI/16;
+                modelRef.current.rotation.y = rotateY + Math.PI + Math.PI/16;
               }
         }
 
@@ -89,7 +89,7 @@ function Model3D(props){
     environment-image="https://duz6y1s4uiy9h.cloudfront.net/mix_hdr2.hdr" 
     poster="https://duz6y1s4uiy9h.cloudfront.net/bulgari_watch_poster.webp" 
     shadow-intensity="1" 
-    exposure="2" 
+    exposure="1.5" 
     camera-orbit="721.1deg 80.59deg auto"
     min-camera-orbit="auto auto 0.1795m" 
     min-field-of-view="34.47deg"
@@ -122,7 +122,7 @@ function WristTracking(props){
                 //console.log(scale);
 
                 rotateZ = Math.atan((landmarks[9].y - landmarks[0].y)/(landmarks[9].x - landmarks[0].x));
-                rotateY = Math.abs(Math.atan((landmarks[5].z - landmarks[9].z)/(landmarks[5].x - landmarks[9].x)));
+                rotateY = Math.atan((landmarks[5].z - landmarks[17].z)/(landmarks[5].x - landmarks[17].x));
                 console.log(rotateY);
             }
         }

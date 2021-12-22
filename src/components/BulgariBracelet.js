@@ -16,9 +16,16 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Environment, OrbitControls, Html, useProgress } from "@react-three/drei";
 import "../components/trackingStyles.css";
 
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+
 function Loader() {
-    //const { progress } = useProgress()
-    return <Html center>Loading Model...</Html>
+    const { progress } = useProgress()
+    return <Html center>
+      <Box sx={{ display: 'flex' }}>
+      <CircularProgress />
+    </Box>
+    </Html>
 }
 
 const Model = () => {
@@ -89,7 +96,7 @@ function Model3D(props){
     exposure="1.08"
     camera-orbit="70deg 60deg 105%"
     max-field-of-view="90deg"
-    min-field-of-view="0deg"
+    min-field-of-view="60deg"
     camera-controls></model-viewer>;
 }
 

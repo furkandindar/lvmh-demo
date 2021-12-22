@@ -18,7 +18,7 @@ function Model3D(props){
     exposure="2" 
     camera-orbit="-394deg 78.27deg 100%" 
     min-camera-orbit="auto auto 0.366m" 
-    min-field-of-view="39.38deg"
+    min-field-of-view="20deg"
     max-field-of-view="90deg"></model-viewer>
 }
 
@@ -45,7 +45,7 @@ function LVNecklace() {
             </Grid>
             <Grid item xs={8}>
                 <Paper style={{height:"75vh", width:"100%"}}>
-                {render8thWallIframe ? <div>8thwall iframe here</div> : <Model3D/>}
+                {render8thWallIframe ? <iframe style={{width:"100%", height:"100%"}} allow="camera;microphone;gyroscope;accelerometer;xr-spatial-tracking;" src="https://qreal3d.8thwall.app/lvmh-necklace/"></iframe> : <Model3D/>}
                 </Paper>
             </Grid>
             <Grid item container justifyContent="center"  xs={2}>
