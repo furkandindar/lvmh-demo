@@ -18,7 +18,7 @@ function Header() {
                     sx={{ mr: 2 }}
                     onClick={() => {navigate("/");}}
                 >
-                   <img style={{width:"100%", maxWidth:"400px"}} src="../assets/model-glb/The-LAB-BVLGARI-QREAL.png"></img>
+                   <img style={{width:"100%", maxWidth:"400px"}} src="./The-LAB-BVLGARI-QREAL.png"></img>
                 </IconButton>
                 </Toolbar>
             </AppBar>
