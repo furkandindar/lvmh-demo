@@ -19,6 +19,18 @@ import "../components/trackingStyles.css";
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { createTheme, ThemeProvider} from "@mui/material/styles";
+
+const theme = createTheme({
+    typography: {
+      fontFamily: [
+        'jost',
+      ].join(','),
+    },
+});
+
 function Loader() {
     const { progress } = useProgress()
     return <Html center>
@@ -87,14 +99,14 @@ var rotateX = 0;
 var hand_info = null;
 
 function Model3D(props){
-    return <model-viewer src="https://duz6y1s4uiy9h.cloudfront.net/Bulgari_bracelet_MV.glb"
+    return <model-viewer src="https://duz6y1s4uiy9h.cloudfront.net/Bulgari_bracelet_MV_V3.glb"
     environment-image="https://duz6y1s4uiy9h.cloudfront.net/dresden_square_1k.hdr"
-    poster="https://duz6y1s4uiy9h.cloudfront.net/bulgari_bracelet_poster.webp"
+    poster="https://duz6y1s4uiy9h.cloudfront.net/bulgari_bracelet_poster_v3.webp"
     ar ar-modes="webxr scene-viewer quick-look"
     bounds="tight"
     shadow-intensity="1"
-    exposure="1.08"
-    camera-orbit="70deg 60deg 105%"
+    exposure="1.6" 
+    camera-orbit="-41.28deg 45.71deg auto"
     max-field-of-view="90deg"
     min-field-of-view="60deg"
     camera-controls></model-viewer>;
@@ -185,32 +197,38 @@ function BulgariBracelet() {
     let navigate = useNavigate();
     const [renderWristTracking, setRenderWristTracking] = useState(false);
     let button;
+//     const theme = useTheme();
+//   const isMobile = !useMediaQuery(theme.breakpoints.up('sm'));
+
+  //onClick={() => {setRenderWristTracking(!renderWristTracking)}}
 
     if(renderWristTracking){
-        button = <Button sx={{color: "#85715D"}} size="large" endIcon={<ViewInArIcon/>} onClick={() => {setRenderWristTracking(!renderWristTracking)}}>view</Button>
+        button = <a href="#" class="fancy-button bg-gradient1" onClick={() => {setRenderWristTracking(!renderWristTracking)}}><span><i class="fa fa-wheelchair-alt"></i>See in your space</span></a>
     }else{
-        button = <Button sx={{color: "#85715D"}} size="large" onClick={() => {setRenderWristTracking(!renderWristTracking)}}>try-on</Button>
+        button = <a href="#" class="fancy-button bg-gradient3" onClick={() => {setRenderWristTracking(!renderWristTracking)}}><span><i class="fa fa-envelope"></i>TRY ON</span></a>
     }
 
     return (
-        <Grid
-            container
-            direction="column"
-            justifyContent="center"
-            alignItems="stretch"
-            >
-            <Grid item xs={2}>
-                <Button sx={{color: "#85715D"}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Products</Button>
+        <ThemeProvider theme={theme}>
+            <Grid
+                container
+                direction="column"
+                justifyContent="center"
+                alignItems="stretch"
+                >
+                <Grid item xs={2}>
+                    <Button disableRipple={true} sx={{color: "#4f464b", "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Products</Button>
+                </Grid>
+                <Grid item xs={8}>
+                    <Paper style={{height:"75vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}}>
+                        {renderWristTracking ? <WristTracking renderWristTracking={renderWristTracking}/> : <Model3D/>}
+                    </Paper>
+                </Grid>
+                <Grid item container justifyContent="center"  xs={2}>
+                    {button}
+                </Grid>
             </Grid>
-            <Grid item xs={8}>
-                <Paper style={{height:"75vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}}>
-                    {renderWristTracking ? <WristTracking renderWristTracking={renderWristTracking}/> : <Model3D/>}
-                </Paper>
-            </Grid>
-            <Grid item container justifyContent="center"  xs={2}>
-                {button}
-            </Grid>
-        </Grid>
+        </ThemeProvider>
     )
 }
 

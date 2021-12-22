@@ -14,7 +14,7 @@ import Content from "./components/Content";
 function App() {
 
   return (
-    <Grid container direction="column" spacing={3}>
+    <Grid container direction="column">
       <Grid item container >
       <Grid item xs={1} lg={2}></Grid>
         <Grid item xs={10} lg={8}>

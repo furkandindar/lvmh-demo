@@ -5,7 +5,16 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import {useNavigate} from "react-router-dom";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ViewInArIcon from '@mui/icons-material/ViewInAr';
+import "../components/trackingStyles.css";
+import { createTheme, ThemeProvider} from "@mui/material/styles";
+
+const theme = createTheme({
+    typography: {
+      fontFamily: [
+        'jost',
+      ].join(','),
+    },
+});
 
 function Model3D(props){
     return <model-viewer 
@@ -29,11 +38,12 @@ function LVNecklace() {
     let button;
 
     if(render8thWallIframe){
-        button = <Button sx={{color: "#85715D"}} size="large" endIcon={<ViewInArIcon/>} onClick={() => {console.log("button clicked"); setRender8thWallIframe(!render8thWallIframe)}}>view</Button>
+        button = <a href="#" class="fancy-button bg-gradient1" onClick={() => {console.log("button clicked"); setRender8thWallIframe(!render8thWallIframe)}}><span><i class="fa fa-wheelchair-alt"></i>See in your space</span></a>
     }else{
-        button = <Button sx={{color: "#85715D"}} size="large" onClick={() => {console.log("button clicked"); setRender8thWallIframe(!render8thWallIframe)}}>try-on</Button>
+        button = <a href="#" class="fancy-button bg-gradient3" onClick={() => {console.log("button clicked"); setRender8thWallIframe(!render8thWallIframe)}}><span><i class="fa fa-envelope"></i>TRY ON</span></a>
     }
     return (
+        <ThemeProvider theme={theme}>
         <Grid
             container
             direction="column"
@@ -41,7 +51,7 @@ function LVNecklace() {
             alignItems="stretch"
             >
             <Grid item xs={2}>
-                <Button sx={{color: "#85715D"}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Products</Button>
+            <Button disableRipple={true} sx={{color: "#4f464b", "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Products</Button>
             </Grid>
             <Grid item xs={8}>
                 <Paper style={{height:"75vh", width:"100%"}}>
@@ -52,6 +62,7 @@ function LVNecklace() {
                 {button}
             </Grid>
         </Grid>
+        </ThemeProvider>
     )
 }
 

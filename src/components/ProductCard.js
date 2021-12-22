@@ -21,19 +21,18 @@ function ProductCard(props) {
     let navigate = useNavigate();
     return (
         <ThemeProvider theme={theme}>
-            <Card sx={{border:"1px solid #4f464b", boxShadow:"none", background:"transparent"}}>
+            <Card onClick={() => {navigate(linkTo);}} sx={{border:"1px solid #4f464b", boxShadow:"none", background:"transparent"}}>
                 <CardMedia
                     component="img"
                     alt={alt}
                     image={imgUrl}
                 />
-                <CardContent style={{textAlign:"center", padding:0}}>
+                <CardContent style={{textAlign:"center", paddingLeft:0, paddingRight:0}}>
                     <Typography variant="subtitle1" component="div">
                     {name}
                     </Typography>
                 </CardContent>
                 <CardActions style={{justifyContent:"center"}}>
-                    <Button sx={{color: "#85715D"}} size="large" endIcon={<ViewInArIcon/>} onClick={() => {navigate(linkTo);}}>View</Button>
                 </CardActions>
         </Card>
         </ThemeProvider>

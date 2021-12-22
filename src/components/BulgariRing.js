@@ -19,6 +19,16 @@ import "../components/trackingStyles.css";
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
+import { createTheme, ThemeProvider} from "@mui/material/styles";
+
+const theme = createTheme({
+    typography: {
+      fontFamily: [
+        'jost',
+      ].join(','),
+    },
+});
+
 function Loader() {
     const { progress } = useProgress()
     return <Html center>
@@ -215,6 +225,7 @@ function BulgariRing() {
         button = <Button sx={{color: "#85715D"}} size="large" onClick={() => {setRenderRingTracking(!renderRingTracking)}}>try-on</Button>
     }
     return (
+      <ThemeProvider theme={theme}>
         <Grid
             container
             direction="column"
@@ -222,7 +233,7 @@ function BulgariRing() {
             alignItems="stretch"
             >
             <Grid item xs={2}>
-                <Button sx={{color: "#85715D"}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Products</Button>
+            <Button disableRipple={true} sx={{color: "#4f464b", "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Products</Button>
             </Grid>
             <Grid item xs={8}>
                 <Paper style={{height:"75vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden"}}>
@@ -233,6 +244,7 @@ function BulgariRing() {
                 {button}
             </Grid>
         </Grid>
+      </ThemeProvider>
     )
 }
 

@@ -12,13 +12,14 @@ function Header() {
             <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none'}}>
                 <Toolbar style={{padding:0}}>
                 <IconButton
+                    disableRipple={true}
                     size="large"
                     edge="start"
                     aria-label="menu"
-                    sx={{ mr: 2 }}
+                    sx={{ mr: 2, "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}, "&.MuiTouchRipple-root:active": {bgcolor: "transparent"} }}
                     onClick={() => {navigate("/");}}
                 >
-                   <img style={{width:"100%", maxWidth:"325px"}} src="./The-LAB-x-Bulgari-x-QReal.png"></img>
+                   <img style={{width:"100%", maxWidth:"310px", marginTop:"5vmin", marginBottom:"4vmin"}} src="./The-LAB-x-Bulgari-x-QReal.png" alt="qreal_lvmh"></img>
                 </IconButton>
                 </Toolbar>
             </AppBar>
