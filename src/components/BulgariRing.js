@@ -25,8 +25,8 @@ function Loader() {
 }
 
 const Model = () => {
-    //https://ttb-dev.s3.amazonaws.com/RingTransformed.glb
-    const gltf = useLoader(GLTFLoader, "https://ttb-dev.s3.amazonaws.com/Bulgari_Ring_V2.glb");
+    //https://duz6y1s4uiy9h.cloudfront.net/RingTransformed.glb
+    const gltf = useLoader(GLTFLoader, "https://duz6y1s4uiy9h.cloudfront.net/Bulgari_Ring_V2.glb");
     //const gltfSkeleton = useLoader(GLTFLoader, "./model.glb");
     const ref = useRef();
     const mesh = gltf.scene;
@@ -84,7 +84,7 @@ var rotateX = 0;
 var hand_info = null;
 
 function Model3D(props){
-    return <model-viewer src="https://ttb-dev.s3.amazonaws.com/Bulgari_Ring_V2.glb" environment-image="neutral" ar ar-modes="webxr scene-viewer quick-look" seamless-poster shadow-intensity="1" camera-controls></model-viewer>;
+    return <model-viewer src="https://duz6y1s4uiy9h.cloudfront.net/Bulgari_Ring_V2.glb" environment-image="neutral" ar ar-modes="webxr scene-viewer quick-look" seamless-poster shadow-intensity="1" camera-controls></model-viewer>;
 }
 
 function RingTracking(props){
@@ -210,7 +210,7 @@ function BulgariRing() {
                 <Button sx={{color: "#85715D"}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Products</Button>
             </Grid>
             <Grid item xs={8}>
-                <Paper style={{height:"60vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden"}}>
+                <Paper style={{height:"75vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden"}}>
                     {renderRingTracking ? <RingTracking stopCamera={!renderRingTracking}/> : <Model3D/>}
                 </Paper>
             </Grid>

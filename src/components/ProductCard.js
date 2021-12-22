@@ -7,19 +7,29 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import ViewInArIcon from '@mui/icons-material/ViewInAr';
 import {useNavigate} from "react-router-dom";
+import { createTheme, ThemeProvider} from "@mui/material/styles";
+
+const theme = createTheme({
+    typography: {
+      fontFamily: [
+        'jost',
+      ].join(','),
+    },});
 
 function ProductCard(props) {
     const {name, imgUrl, alt, linkTo} = props;
     let navigate = useNavigate();
     return (
-        <Card>
+        <ThemeProvider theme={theme}>
+        {/* sx={{borderRadius:"1px", border:"1px solid black", boxShadow:"none"}} */}
+            <Card elevation={3}>
                 <CardMedia
                     component="img"
                     alt={alt}
                     image={imgUrl}
                 />
                 <CardContent style={{textAlign:"center", padding:0}}>
-                    <Typography fontFamily="monospace" variant="subtitle1" component="div">
+                    <Typography variant="subtitle1" component="div">
                     {name}
                     </Typography>
                 </CardContent>
@@ -27,6 +37,7 @@ function ProductCard(props) {
                     <Button sx={{color: "#85715D"}} size="large" endIcon={<ViewInArIcon/>} onClick={() => {navigate(linkTo);}}>View</Button>
                 </CardActions>
         </Card>
+        </ThemeProvider>
     )
 }
 

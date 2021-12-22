@@ -22,13 +22,13 @@ function Loader() {
 }
 
 const Model = () => {
-    const gltf = useLoader(GLTFLoader, "https://ttb-dev.s3.amazonaws.com/Bulgari_bracelet__ThreeV2.glb");
+    const gltf = useLoader(GLTFLoader, "https://duz6y1s4uiy9h.cloudfront.net/Bulgari_bracelet__ThreeV3.glb");
     const modelRef = useRef();
 
     const model = gltf.scene;
 
     model.children[1].material.colorWrite = false;
-    model.children[2].material.colorWrite = false;
+    model.children[2].material.opacity = 0.2;
     console.log(model);
 
     useFrame((state, delta) => {
@@ -80,9 +80,9 @@ var rotateX = 0;
 var hand_info = null;
 
 function Model3D(props){
-    return <model-viewer src="https://ttb-dev.s3.amazonaws.com/Bulgari_bracelet_MV.glb"
-    environment-image="https://ttb-dev.s3.amazonaws.com/dresden_square_1k.hdr"
-    poster="https://ttb-dev.s3.amazonaws.com/bulgari_bracelet_poster.webp"
+    return <model-viewer src="https://duz6y1s4uiy9h.cloudfront.net/Bulgari_bracelet_11.glb"
+    environment-image="https://duz6y1s4uiy9h.cloudfront.net/dresden_square_1k.hdr"
+    poster="https://duz6y1s4uiy9h.cloudfront.net/bulgari_bracelet_poster.webp"
     ar ar-modes="webxr scene-viewer quick-look"
     bounds="tight"
     shadow-intensity="1"
@@ -166,23 +166,10 @@ function WristTracking(props){
             <Canvas className="canvas-wrapper">
                 <Suspense fallback={<Loader/>}>
                     <Model></Model>
-                    <Environment preset="sunset"></Environment>
+                    <Environment files="https://duz6y1s4uiy9h.cloudfront.net/dresden_square_1k.hdr"></Environment>
                     <OrbitControls></OrbitControls>
                 </Suspense>
             </Canvas>
-            {/* <button onClick={() => { webcamRef.current = "undefined"; setTimeout(() => {
-                const video = document.querySelector('video');
-
-                const mediaStream = video.srcObject;
-
-                const tracks = mediaStream.getTracks();
-
-                tracks[0].stop();
-                landmark_x = -100;
-                landmark_y = -100;
-                landmark_z = -100;
-                navigate("/");
-            }, 500);}}>Go back</button> */}
         </div>
     );
 }
@@ -209,7 +196,7 @@ function BulgariBracelet() {
                 <Button sx={{color: "#85715D"}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Products</Button>
             </Grid>
             <Grid item xs={8}>
-                <Paper style={{height:"60vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}}>
+                <Paper style={{height:"75vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}}>
                     {renderWristTracking ? <WristTracking renderWristTracking={renderWristTracking}/> : <Model3D/>}
                 </Paper>
             </Grid>

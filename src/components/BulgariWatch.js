@@ -18,29 +18,30 @@ import "../components/trackingStyles.css";
 
 function Loader() {
     const { progress } = useProgress()
-    return <Html center>{progress} % loaded</Html>
+    return <Html center>Model Loading...</Html>
 }
 
 const Model = () => {
-    const gltf = useLoader(GLTFLoader, "https://ttb-dev.s3.amazonaws.com/LV_watch_transformed_v1.glb");
+    const gltf = useLoader(GLTFLoader, "https://duz6y1s4uiy9h.cloudfront.net/LV_watch_transformed_v1.glb");
     const modelRef = useRef();
 
     const model = gltf.scene;
 
     model.children[1].material.colorWrite = false;
-    // model.children[2].material.colorWrite = false;
-    //console.log(model);
+    model.children[2].material.opacity = 0.3;
+    console.log(model);
 
     useFrame((state, delta) => {
         modelRef.current.position.x = (landmark_x - 0.5)*10;
         modelRef.current.position.y = -(landmark_y - 0.45)*7.5;
+        modelRef.current.position.z = (landmark_z);
         // modelRef.current.position.x = 0;
         // modelRef.current.position.y = 4;
         // modelRef.current.position.z = landmark_z;
 
-        modelRef.current.scale.x = scale*50;
-        modelRef.current.scale.y = scale*50;
-        modelRef.current.scale.z = scale*50;
+        modelRef.current.scale.x = scale*48;
+        modelRef.current.scale.y = scale*48;
+        modelRef.current.scale.z = scale*48;
 
         // modelRef.current.rotation.y = Math.PI/2;
         // modelRef.current.rotation.x = Math.PI/2;
@@ -53,11 +54,11 @@ const Model = () => {
                 modelRef.current.rotation.y = rotateY + Math.PI - Math.PI/16;
               }
         } else {
-            modelRef.current.rotation.z = (rotateZ) + Math.PI/2;
+            modelRef.current.rotation.z = -(rotateZ) + Math.PI/2;
             if (rotateY < 0) {
                 modelRef.current.rotation.y = rotateY + Math.PI/16;
               } else {
-                modelRef.current.rotation.y = rotateY + Math.PI + Math.PI/16;
+                modelRef.current.rotation.y = rotateY + Math.PI/16;
               }
         }
 
@@ -81,19 +82,19 @@ var hand_info = null;
 
 function Model3D(props){
     return <model-viewer
-       src="https://ttb-dev.s3.amazonaws.com/LV_Watch_web_Occluderless.glb"
-       ios-src="https://ttb-dev.s3.amazonaws.com/Bvlgari_Web_V6.usdz"
-       camera-orbit="0deg 15deg 105%"
-       min-camera-orbit="auto 0deg auto"
-       max-camera-orbit="auto 180deg auto"
-       max-field-of-view="90deg"
-       min-field-of-view="0deg"
-       environment-image="neutral" 
-       ar ar-modes="webxr scene-viewer quick-look"
-       seamless-poster 
-       shadow-intensity="1" 
-       camera-controls>
-       </model-viewer>;
+    bounds="tight"
+    src="https://duz6y1s4uiy9h.cloudfront.net/LV_Watch_web_v2.glb"
+    ar ar-modes="webxr scene-viewer quick-look" 
+    camera-controls 
+    environment-image="https://duz6y1s4uiy9h.cloudfront.net/mix_hdr2.hdr" 
+    poster="https://duz6y1s4uiy9h.cloudfront.net/bulgari_watch_poster.webp" 
+    shadow-intensity="1" 
+    exposure="2" 
+    camera-orbit="721.1deg 80.59deg auto"
+    min-camera-orbit="auto auto 0.1795m" 
+    min-field-of-view="34.47deg"
+    max-field-of-view="90deg"
+    ></model-viewer>
 }
 
 function WristTracking(props){
@@ -109,7 +110,8 @@ function WristTracking(props){
                 //console.log(hand_info);
                 landmark_x = landmarks[0].x;
                 landmark_y = landmarks[0].y;
-                landmark_z = landmarks[0].z;
+                landmark_z = landmarks[1].z;
+                //console.log("landmark z: " + landmark_z);
 
                 // console.log(landmarks[1].x);
                 // console.log(landmarks[1].z);
@@ -120,8 +122,8 @@ function WristTracking(props){
                 //console.log(scale);
 
                 rotateZ = Math.atan((landmarks[9].y - landmarks[0].y)/(landmarks[9].x - landmarks[0].x));
-                rotateY = Math.atan((landmarks[5].z - landmarks[17].z)/(landmarks[5].x - landmarks[17].x));
-                //console.log(rotateY);
+                rotateY = Math.abs(Math.atan((landmarks[5].z - landmarks[9].z)/(landmarks[5].x - landmarks[9].x)));
+                console.log(rotateY);
             }
         }
         else{
@@ -169,7 +171,7 @@ function WristTracking(props){
             <Canvas className="canvas-wrapper">
                 <Suspense fallback={<Loader/>}>
                     <Model></Model>
-                    <Environment preset="sunset"></Environment>
+                    <Environment files="https://duz6y1s4uiy9h.cloudfront.net/mix_hdr2.hdr"></Environment>
                     <OrbitControls></OrbitControls>
                 </Suspense>
             </Canvas>
@@ -212,7 +214,7 @@ function BulgariWatch() {
                 <Button sx={{color: "#85715D"}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Products</Button>
             </Grid>
             <Grid item xs={8}>
-                <Paper style={{height:"60vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}}>
+                <Paper style={{height:"75vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}}>
                     {renderWristTracking ? <WristTracking renderWristTracking={renderWristTracking}/> : <Model3D/>}
                 </Paper>
             </Grid>

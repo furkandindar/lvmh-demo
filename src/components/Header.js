@@ -10,7 +10,7 @@ function Header() {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none'}}>
-                <Toolbar>
+                <Toolbar style={{padding:0}}>
                 <IconButton
                     size="large"
                     edge="start"
@@ -18,7 +18,7 @@ function Header() {
                     sx={{ mr: 2 }}
                     onClick={() => {navigate("/");}}
                 >
-                   QReal x LVMH
+                   <img style={{width:"100%", maxWidth:"400px"}} src="../assets/model-glb/The-LAB-BVLGARI-QREAL.png"></img>
                 </IconButton>
                 </Toolbar>
             </AppBar>
