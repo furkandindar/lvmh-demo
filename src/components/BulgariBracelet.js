@@ -206,7 +206,9 @@ function BulgariBracelet() {
         console.log("clicked");
         var mv= document.getElementById('modelviewer')
         console.log(mv.iosSrc);
+        console.log(window.self.location.toString());
         const t=new URL(mv.iosSrc,window.self.location.toString());
+        console.log(t);
             const e = document.createElement("a")
             e.setAttribute("rel","ar");
             const n=document.createElement("img");
