@@ -13,8 +13,10 @@ import { Hands } from "@mediapipe/hands";
 import * as cam from "@mediapipe/camera_utils";
 import { Canvas, useLoader, useFrame } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { Environment, OrbitControls, Html, useProgress } from "@react-three/drei";
+import { Environment, OrbitControls } from "@react-three/drei";
 import "../components/trackingStyles.css";
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme, ThemeProvider} from "@mui/material/styles";
 
 const theme = createTheme({
@@ -24,11 +26,6 @@ const theme = createTheme({
       ].join(','),
     },
 });
-
-function Loader() {
-    const { progress } = useProgress()
-    return <Html center>Model Loading...</Html>
-}
 
 const Model = () => {
     const gltf = useLoader(GLTFLoader, "https://duz6y1s4uiy9h.cloudfront.net/LV_watch_transformed_v1.glb");
@@ -178,7 +175,7 @@ function WristTracking(props){
             <div className="outer-div">
             <Webcam className="webcam-wrapper"  ref={webcamRef} mirrored={true}></Webcam>
             <Canvas className="canvas-wrapper">
-                <Suspense fallback={<Loader/>}>
+                <Suspense fallback={null}>
                     <Model></Model>
                     <Environment files="https://duz6y1s4uiy9h.cloudfront.net/mix_hdr2.hdr"></Environment>
                     <OrbitControls></OrbitControls>
@@ -206,11 +203,17 @@ function BulgariWatch() {
     const [renderWristTracking, setRenderWristTracking] = useState(false);
     console.log(renderWristTracking);
     let button;
+    const themeResponsive = useTheme();
+    const isMobile = !useMediaQuery(themeResponsive.breakpoints.up('sm'));
 
     if(renderWristTracking){
-        button = <Button sx={{color: "#85715D"}} size="large" endIcon={<ViewInArIcon/>} onClick={() => {console.log("button clicked"); setRenderWristTracking(!renderWristTracking)}}>view</Button>
+        button = <a href="#" class="fancy-button bg-gradient1" onClick={() => {setRenderWristTracking(!renderWristTracking)}}><span><img src="./viewinar_01.png"/>See in your space</span></a>
     }else{
-        button = <Button sx={{color: "#85715D"}} size="large" onClick={() => {console.log("button clicked"); setRenderWristTracking(!renderWristTracking)}}>try-on</Button>
+        if(isMobile){
+            button = <a href="https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=8c88d4a54ebc421db7c2cf15c2338953&metadata=01" class="fancy-button bg-gradient3"><span><img src="./snap_01.png"/>TRY ON</span></a>
+        }else{
+            button = <a href="#" class="fancy-button bg-gradient3" onClick={() => {setRenderWristTracking(!renderWristTracking)}}><span><img src="./snap_01.png"/>TRY ON</span></a>
+        }
     }
     return (
         <ThemeProvider theme={theme}>
@@ -224,7 +227,7 @@ function BulgariWatch() {
                 <Button disableRipple={true} sx={{color: "#4f464b", "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Products</Button>
             </Grid>
             <Grid item xs={8}>
-                <Paper style={{height:"75vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}}>
+                <Paper style={{height:"70vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}}>
                     {renderWristTracking ? <WristTracking renderWristTracking={renderWristTracking}/> : <Model3D/>}
                 </Paper>
             </Grid>

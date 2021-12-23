@@ -16,10 +16,10 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Environment, OrbitControls, Html, useProgress } from "@react-three/drei";
 import "../components/trackingStyles.css";
 
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
-
 import { createTheme, ThemeProvider} from "@mui/material/styles";
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 
 const theme = createTheme({
     typography: {
@@ -28,15 +28,6 @@ const theme = createTheme({
       ].join(','),
     },
 });
-
-function Loader() {
-    const { progress } = useProgress()
-    return <Html center>
-      <Box sx={{ display: 'flex' }}>
-      <CircularProgress />
-    </Box>
-    </Html>
-}
 
 const Model = () => {
     //https://duz6y1s4uiy9h.cloudfront.net/RingTransformed.glb
@@ -203,7 +194,7 @@ function RingTracking(props){
         </div> : null} */}
           <Webcam className="webcam-wrapper" ref={webcamRef} mirrored={true}/>
           <Canvas toneMappingExposure={2} ref={canvasRef} camera={{fov:75, position: [0, 0, 0.5] }} className="canvas-wrapper">
-            <Suspense fallback={<Loader />}>
+            <Suspense fallback={null}>
               <Model position={[0,0,0]}/>
               <Environment files="https://duz6y1s4uiy9h.cloudfront.net/mix_hdri_exp2.hdr"></Environment>
               <OrbitControls></OrbitControls>
@@ -216,14 +207,19 @@ function RingTracking(props){
 function BulgariRing() {
     let navigate = useNavigate();
     const [renderRingTracking, setRenderRingTracking] = useState(false);
-    //console.log(renderRingTracking);
     let button;
+    const themeResponsive = useTheme();
+    const isMobile = !useMediaQuery(themeResponsive.breakpoints.up('sm'));
 
     if(renderRingTracking){
-        button = <Button sx={{color: "#85715D"}} size="large" endIcon={<ViewInArIcon/>} onClick={() => {setRenderRingTracking(!renderRingTracking)}}>view</Button>
-    }else{
-        button = <Button sx={{color: "#85715D"}} size="large" onClick={() => {setRenderRingTracking(!renderRingTracking)}}>try-on</Button>
-    }
+      button = <a href="#" class="fancy-button bg-gradient1" onClick={() => {setRenderRingTracking(!renderRingTracking)}}><span><img src="./viewinar_01.png"/>See in your space</span></a>
+  }else{
+      if(isMobile){
+          button = <a href="https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=ea42f6c40d024548a2c2b96a4d336d43&metadata=01" class="fancy-button bg-gradient3"><span><img src="./snap_01.png"/>TRY ON</span></a>
+      }else{
+          button = <a href="#" class="fancy-button bg-gradient3" onClick={() => {setRenderRingTracking(!renderRingTracking)}}><span><img src="./snap_01.png"/>TRY ON</span></a>
+      }
+  }
     return (
       <ThemeProvider theme={theme}>
         <Grid
@@ -236,7 +232,7 @@ function BulgariRing() {
             <Button disableRipple={true} sx={{color: "#4f464b", "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Products</Button>
             </Grid>
             <Grid item xs={8}>
-                <Paper style={{height:"75vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden"}}>
+                <Paper style={{height:"70vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden"}}>
                     {renderRingTracking ? <RingTracking stopCamera={!renderRingTracking}/> : <Model3D/>}
                 </Paper>
             </Grid>

@@ -38,9 +38,9 @@ function LVNecklace() {
     let button;
 
     if(render8thWallIframe){
-        button = <a href="#" class="fancy-button bg-gradient1" onClick={() => {console.log("button clicked"); setRender8thWallIframe(!render8thWallIframe)}}><span><i class="fa fa-wheelchair-alt"></i>See in your space</span></a>
+        button = <a href="#" class="fancy-button bg-gradient1" onClick={() => {console.log("button clicked"); setRender8thWallIframe(!render8thWallIframe)}}><span><img src="./viewinar_01.png"/>See in your space</span></a>
     }else{
-        button = <a href="#" class="fancy-button bg-gradient3" onClick={() => {console.log("button clicked"); setRender8thWallIframe(!render8thWallIframe)}}><span><i class="fa fa-envelope"></i>TRY ON</span></a>
+        button = <a href="#" class="fancy-button bg-gradient3" onClick={() => {console.log("button clicked"); setRender8thWallIframe(!render8thWallIframe)}}><span><img src="./snap_01.png"/>TRY ON</span></a>
     }
     return (
         <ThemeProvider theme={theme}>
@@ -54,7 +54,7 @@ function LVNecklace() {
             <Button disableRipple={true} sx={{color: "#4f464b", "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Products</Button>
             </Grid>
             <Grid item xs={8}>
-                <Paper style={{height:"75vh", width:"100%"}}>
+                <Paper style={{height:"70vh", width:"100%"}}>
                 {render8thWallIframe ? <iframe style={{width:"100%", height:"100%"}} allow="camera;microphone;gyroscope;accelerometer;xr-spatial-tracking;" src="https://qreal3d.8thwall.app/lvmh-necklace/"></iframe> : <Model3D/>}
                 </Paper>
             </Grid>

@@ -16,9 +16,6 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Environment, OrbitControls, Html, useProgress } from "@react-three/drei";
 import "../components/trackingStyles.css";
 
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
-
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme, ThemeProvider} from "@mui/material/styles";
@@ -30,15 +27,6 @@ const theme = createTheme({
       ].join(','),
     },
 });
-
-function Loader() {
-    const { progress } = useProgress()
-    return <Html center>
-      <Box sx={{ display: 'flex' }}>
-      <CircularProgress />
-    </Box>
-    </Html>
-}
 
 const Model = () => {
     const gltf = useLoader(GLTFLoader, "https://duz6y1s4uiy9h.cloudfront.net/Bulgari_bracelet__ThreeV3.glb");
@@ -183,7 +171,7 @@ function WristTracking(props){
             <div className="outer-div">
             <Webcam className="webcam-wrapper"  ref={webcamRef} mirrored={true}></Webcam>
             <Canvas className="canvas-wrapper">
-                <Suspense fallback={<Loader/>}>
+                <Suspense fallback={null}>
                     <Model></Model>
                     <Environment files="https://duz6y1s4uiy9h.cloudfront.net/dresden_square_1k.hdr"></Environment>
                     <OrbitControls></OrbitControls>
