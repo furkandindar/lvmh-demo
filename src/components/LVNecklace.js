@@ -73,7 +73,7 @@ function LVNecklace() {
             </Grid>
             <Grid item container justifyContent="center"  xs={2}>
                 {button}
-                {isMobile ? <a href="#" class="fancy-button bg-gradient3"><span><img src="./snap_01.png"/>TRY ON</span></a> : null}
+                {isMobile ? <a href="https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=7d2ed94a05764da4ad4e9a3f6a4d471a&metadata=01" class="fancy-button bg-gradient3"><span><img src="./snap_01.png"/>TRY ON</span></a> : null}
             </Grid>
         </Grid>
         </ThemeProvider>

@@ -216,7 +216,7 @@ function BulgariRing() {
       button = <a href="#" class="fancy-button bg-gradient1" onClick={() => {setRenderRingTracking(!renderRingTracking)}}><span class="span2"><img class="img2" src="./close.png"/></span></a>
   }else{
       if(isMobile){
-          button = <a href="https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=ea42f6c40d024548a2c2b96a4d336d43&metadata=01" class="fancy-button bg-gradient3"><span><img src="./snap_01.png"/>TRY ON</span></a>
+          button = <a href="https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=d29d37705add48779b9c711c25445fb7&metadata=01" class="fancy-button bg-gradient3"><span><img src="./snap_01.png"/>TRY ON</span></a>
       }else{
           button = <a href="#" class="fancy-button bg-gradient3" onClick={() => {setRenderRingTracking(!renderRingTracking)}}><span><img src="./viewinar_01.png"/>TRY ON</span></a>
       }
