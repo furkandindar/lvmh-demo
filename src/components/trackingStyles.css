@@ -74,11 +74,13 @@ a:hover, a:focus, a:active {
   font-size: 1.265em;
   vertical-align: middle;
 }
+
+
 .fancy-button img {
 	position: relative;
    margin-top: -3px;
 	margin-right: 10px;
-   top:0;
+   top:3px;
 	left:0;
 	height: 16px;
    width: 16px;
