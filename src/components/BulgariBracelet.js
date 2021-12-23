@@ -236,7 +236,7 @@ function BulgariBracelet() {
                     </Paper>
                 </Grid>
                 <Grid item container justifyContent="center"  xs={2}>
-                    {isMobile ? <a href="#" class="fancy-button bg-gradient1" onClick={viewInArButton}><span><img src="./viewinar_01.png"/>See in your space</span></a> : null}
+                    {isMobile ? <a href="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_Web_V6.usdz" rel="ar" class="fancy-button bg-gradient1"><span><img src="./viewinar_01.png"/>See in your space</span></a> : null}
                     {button}
                 </Grid>
             </Grid>
