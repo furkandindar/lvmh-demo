@@ -200,6 +200,19 @@ function BulgariBracelet() {
         }
     }
 
+    function viewInArButton(){
+        var mv= document.getElementById('modelviewer')
+
+        const t=new URL(mv.iosSrc,window.self.location.toString());
+            const e = document.createElement("a")
+            e.setAttribute("rel","ar");
+            const n=document.createElement("img");
+            e.appendChild(n);
+            e.setAttribute("href",t.toString());
+            e.click();
+            e.removeChild(n);
+    }
+
     return (
         <ThemeProvider theme={theme}>
             <Grid
@@ -217,6 +230,7 @@ function BulgariBracelet() {
                     </Paper>
                 </Grid>
                 <Grid item container justifyContent="center"  xs={2}>
+                    {isMobile ? <a href="#" class="fancy-button bg-gradient1" onClick={viewInArButton}><span><img src="./viewinar_01.png"/>See in your space</span></a> : null}
                     {button}
                 </Grid>
             </Grid>
