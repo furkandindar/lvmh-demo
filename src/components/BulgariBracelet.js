@@ -87,13 +87,13 @@ var rotateX = 0;
 var hand_info = null;
 
 function Model3D(props){
-    return <model-viewer id="modelviewer"
+    return <model-viewer
     ios-src="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_Web_V6.usdz" 
     src="https://duz6y1s4uiy9h.cloudfront.net/Bulgari_bracelet_MV_V5.glb"
     environment-image="https://duz6y1s4uiy9h.cloudfront.net/dresden_square_1k.hdr"
     poster="https://duz6y1s4uiy9h.cloudfront.net/bulgari_bracelet_poster_v3.webp"
+    ar-modes="quick-look"
     ar
-    ar-modes="webxr scene-viewer quick-look"
     bounds="tight"
     shadow-intensity="1"
     exposure="1.6" 
@@ -101,6 +101,23 @@ function Model3D(props){
     max-field-of-view="90deg"
     min-field-of-view="60deg"
     camera-controls></model-viewer>;
+}
+
+function Model3DHidden(){
+    return <model-viewer
+    id="modelviewer"
+    ar
+    alt="Qreal-Godzilla-1"
+    ios-src="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_Web_V6.usdz"
+    src="https://duz6y1s4uiy9h.cloudfront.net/Bulgari_bracelet_MV_V5.glb"
+    auto-rotate=""
+    preload=""
+    poster="/images/loading.png"
+    camera-controls=""
+    ar-scale="auto"
+    autoplay
+    style="height:100%;width:100%; display: none;"
+    ></model-viewer>
 }
 
 function WristTracking(props){
@@ -250,7 +267,7 @@ function BulgariBracelet() {
                     </Paper>
                 </Grid>
                 <Grid item container justifyContent="center"  xs={2}>
-                    {isMobile ? <a href="https://qreal-s3public.s3.amazonaws.com/Godzilla/ar.html" class="fancy-button bg-gradient1"><span><img src="./viewinar_01.png"/>See in your space</span></a> : null}
+                    {isMobile ? <a href="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_Web_V6.usdz" rel="ar" class="fancy-button bg-gradient1"><span><img src="./viewinar_01.png"/>See in your space</span></a> : null}
                     {button}
                 </Grid>
             </Grid>
