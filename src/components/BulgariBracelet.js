@@ -22,7 +22,15 @@ import { createTheme, ThemeProvider} from "@mui/material/styles";
 
 function Loader() {
     const { progress } = useProgress()
-    return <Html center>{progress} % loaded</Html>
+    return <Html center><div class="blobs">
+	<div class="blob-center"></div>
+	<div class="blob"></div>
+	<div class="blob"></div>
+	<div class="blob"></div>
+	<div class="blob"></div>
+	<div class="blob"></div>
+	<div class="blob"></div>
+</div></Html>
 }
 
 const theme = createTheme({
@@ -251,6 +259,7 @@ function BulgariBracelet() {
                 direction="column"
                 justifyContent="center"
                 alignItems="stretch"
+                sx={{marginTop:"-7vmin"}}
                 >
                 <Grid item xs={2}>
                     <Button disableRipple={true} sx={{color: "#4f464b", "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Catalog</Button>
@@ -261,9 +270,9 @@ function BulgariBracelet() {
                     </Paper>
                 </Grid>
                 <Grid item container justifyContent="center"  xs={2}>
+                {button}
                     {isMobile ? <a onClick={viewInArButton} class="fancy-button bg-gradient1"><span><img className="seeinyourspace" src="./seeinyourspace.png"/>View in your space</span></a> : null}
-                    <a id="arbutton" href="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_Web_V6.usdz" style={{display:"none"}} rel="ar"> <img /></a>
-                    {button}
+                    <a id="arbutton" href="https://duz6y1s4uiy9h.cloudfront.net/Bulgari_bracelet_MV_V7.usdz" style={{display:"none"}} rel="ar"> <img /></a>
                 </Grid>
             </Grid>
         </ThemeProvider>

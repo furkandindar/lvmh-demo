@@ -234,6 +234,7 @@ function BulgariWatch() {
             direction="column"
             justifyContent="center"
             alignItems="stretch"
+            sx={{marginTop:"-7vmin"}}
             >
             <Grid item xs={2}>
                 <Button disableRipple={true} sx={{color: "#4f464b", "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Catalog</Button>

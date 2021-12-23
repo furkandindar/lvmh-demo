@@ -19,7 +19,7 @@ function Header() {
                     sx={{ paddingTop:0, paddingBottom:0, mr: 2, "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}, "&.MuiTouchRipple-root:active": {bgcolor: "transparent"} }}
                     onClick={() => {navigate("/");}}
                 >
-                   <img style={{width:"100%", maxWidth:"310px", marginTop:"5vmin", marginBottom:"2vmin"}} src="./The-LAB-x-Bulgari-x-QReal_v4.png" alt="qreal_lvmh"></img>
+                   <img style={{width:"100%", maxWidth:"310px", marginTop:"8vmin", marginBottom:"8vmin"}} src="./The-LAB-x-Bulgari-x-QReal_v4.png" alt="qreal_lvmh"></img>
                 </IconButton>
                 </Toolbar>
             </AppBar>

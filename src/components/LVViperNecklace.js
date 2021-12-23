@@ -59,6 +59,7 @@ function LVViperNecklace() {
             direction="column"
             justifyContent="center"
             alignItems="stretch"
+            sx={{marginTop:"-7vmin"}}
             >
             <Grid item xs={2}>
             <Button disableRipple={true} sx={{color: "#4f464b", "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Catalog</Button>
@@ -72,7 +73,7 @@ function LVViperNecklace() {
                 {button}
                 {isMobile ? <a href="#" class="fancy-button bg-gradient3"><span><img src="./snap_01.png"/>TRY ON</span></a> : null}
                 {isMobile ? <a onClick={viewInArButton} class="fancy-button bg-gradient1"><span><img className="seeinyourspace" src="./seeinyourspace.png"/>View in your space</span></a> : null}
-                    <a id="arbutton" href="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_Web_V6.usdz" style={{display:"none"}} rel="ar"> <img /></a>
+                    <a id="arbutton" href="https://duz6y1s4uiy9h.cloudfront.net/Viper_Necklece_02_1.usdz" style={{display:"none"}} rel="ar"> <img /></a>
             </Grid>
         </Grid>
         </ThemeProvider>
