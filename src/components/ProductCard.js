@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import ViewInArIcon from '@mui/icons-material/ViewInAr';
 import {useNavigate} from "react-router-dom";
 import { createTheme, ThemeProvider} from "@mui/material/styles";
+import "../components/trackingStyles.css";
 
 const theme = createTheme({
     typography: {
@@ -21,7 +22,7 @@ function ProductCard(props) {
     let navigate = useNavigate();
     return (
         <ThemeProvider theme={theme}>
-            <Card onClick={() => {navigate(linkTo);}} sx={{border:"1px solid #4f464b", boxShadow:"none", borderRadius:"50px" , background:"transparent"}}>
+            <Card style={{cursor:"pointer"}} onClick={() => {navigate(linkTo);}} sx={{border:"1px solid #4f464b", boxShadow:"none", borderRadius:"50px" , background:"transparent"}}>
                 <CardMedia
                     component="img"
                     alt={alt}
@@ -32,8 +33,6 @@ function ProductCard(props) {
                     {name}
                     </Typography>
                 </CardContent>
-                <CardActions style={{justifyContent:"center"}}>
-                </CardActions>
         </Card>
         </ThemeProvider>
     )

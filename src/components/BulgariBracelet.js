@@ -20,6 +20,11 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme, ThemeProvider} from "@mui/material/styles";
 
+function Loader() {
+    const { progress } = useProgress()
+    return <Html center>{progress} % loaded</Html>
+}
+
 const theme = createTheme({
     typography: {
       fontFamily: [
@@ -188,9 +193,9 @@ function WristTracking(props){
 
     return (
             <div className="outer-div">
-            <Webcam className="webcam-wrapper"  ref={webcamRef} mirrored={true} style={{borderRadius:"30px", border:"1px solid #4f464b"}}></Webcam>
+            <Webcam className="webcam-wrapper"  ref={webcamRef} mirrored={true} style={{borderRadius:"30px"}}></Webcam>
             <Canvas className="canvas-wrapper">
-                <Suspense fallback={null}>
+                <Suspense fallback={<Loader/>}>
                     <Model></Model>
                     <Environment files="https://duz6y1s4uiy9h.cloudfront.net/dresden_square_1k.hdr"></Environment>
                     <OrbitControls></OrbitControls>
@@ -251,7 +256,7 @@ function BulgariBracelet() {
                     <Button disableRipple={true} sx={{color: "#4f464b", "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Catalog</Button>
                 </Grid>
                 <Grid item xs={8}>
-                    <Paper sx={{borderRadius:"50px", background:"transparent"}} style={{height:"70vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}} elevation={0}>
+                    <Paper sx={{borderRadius:"50px", background:"transparent"}} style={{height:"65vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}} elevation={0}>
                         {renderWristTracking ? <WristTracking renderWristTracking={renderWristTracking}/> : <Model3D/>}
                     </Paper>
                 </Grid>

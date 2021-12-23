@@ -63,7 +63,7 @@ function LVEarrings() {
             <Button disableRipple={true} sx={{color: "#4f464b", "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Catalog</Button>
             </Grid>
             <Grid item xs={8}>
-            <Paper sx={{borderRadius:"50px", background:"transparent"}} style={{height:"70vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}} elevation={0}>
+            <Paper sx={{borderRadius:"50px", background:"transparent"}} style={{height:"65vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}} elevation={0}>
                     {render8thWallIframe ? <iframe style={{width:"100%", height:"100%", border:"none"}} allow="camera;microphone;gyroscope;accelerometer;xr-spatial-tracking;" src="https://qreal3d.8thwall.app/lvmh/"></iframe> : <Model3D/>}
                 </Paper>
             </Grid>

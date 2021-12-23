@@ -5,7 +5,6 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import {useNavigate} from "react-router-dom";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ViewInArIcon from '@mui/icons-material/ViewInAr';
 
 import { useRef, useEffect, Suspense } from "react";
 import Webcam from "react-webcam";
@@ -13,11 +12,16 @@ import { Hands } from "@mediapipe/hands";
 import * as cam from "@mediapipe/camera_utils";
 import { Canvas, useLoader, useFrame } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { Environment, OrbitControls } from "@react-three/drei";
+import { Environment, OrbitControls, Html, useProgress } from "@react-three/drei";
 import "../components/trackingStyles.css";
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme, ThemeProvider} from "@mui/material/styles";
+
+function Loader() {
+    const { progress } = useProgress()
+    return <Html center>{progress} % loaded</Html>
+}
 
 const theme = createTheme({
     typography: {
@@ -101,6 +105,7 @@ function Model3D(props){
     min-camera-orbit="auto auto 0.1795m" 
     min-field-of-view="34.47deg"
     max-field-of-view="90deg"
+    field-of-view="70deg"
     ></model-viewer>
 }
 
@@ -174,9 +179,9 @@ function WristTracking(props){
 
     return (
             <div className="outer-div">
-            <Webcam className="webcam-wrapper"  ref={webcamRef} mirrored={true} style={{borderRadius:"30px", border:"1px solid #4f464b"}}></Webcam>
+            <Webcam className="webcam-wrapper"  ref={webcamRef} mirrored={true} style={{borderRadius:"30px"}}></Webcam>
             <Canvas className="canvas-wrapper">
-                <Suspense fallback={null}>
+                <Suspense fallback={<Loader/>}>
                     <Model></Model>
                     <Environment files="https://duz6y1s4uiy9h.cloudfront.net/mix_hdr2.hdr"></Environment>
                     <OrbitControls></OrbitControls>
@@ -234,7 +239,7 @@ function BulgariWatch() {
                 <Button disableRipple={true} sx={{color: "#4f464b", "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Catalog</Button>
             </Grid>
             <Grid item xs={8}>
-            <Paper sx={{borderRadius:"50px", background:"transparent"}} style={{height:"70vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}} elevation={0}>
+            <Paper sx={{borderRadius:"50px", background:"transparent"}} style={{height:"65vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}} elevation={0}>
                     {renderWristTracking ? <WristTracking renderWristTracking={renderWristTracking}/> : <Model3D/>}
                 </Paper>
             </Grid>

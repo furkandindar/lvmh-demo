@@ -21,6 +21,7 @@ const theme = createTheme({
 function Model3D(props){
     return <model-viewer 
     bounds="tight" 
+    minimumRenderScale="1"
     src="https://duz6y1s4uiy9h.cloudfront.net/LeMagnifiche.glb" 
     ar-modes="quick-look"
     ar-scale
@@ -65,7 +66,7 @@ function LVNecklace() {
             <Button disableRipple={true} sx={{color: "#4f464b", "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Catalog</Button>
             </Grid>
             <Grid item xs={8}>
-            <Paper sx={{borderRadius:"50px", background:"transparent"}} style={{height:"70vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}} elevation={0}>
+            <Paper sx={{borderRadius:"50px", background:"transparent"}} style={{height:"65vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}} elevation={0}>
                 {render8thWallIframe ? <iframe style={{width:"100%", height:"100%", border:"none"}} allow="camera;microphone;gyroscope;accelerometer;xr-spatial-tracking;" src="https://qreal3d.8thwall.app/lvmh-necklace/"></iframe> : <Model3D/>}
                 </Paper>
             </Grid>

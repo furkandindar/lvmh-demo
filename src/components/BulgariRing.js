@@ -193,7 +193,7 @@ function RingTracking(props){
         {/* {showHand ? <div className="webcam-wrapper" style={{zIndex:100}}>
                 <h1>SHOW YOUR HAND</h1>
         </div> : null} */}
-          <Webcam className="webcam-wrapper" ref={webcamRef} mirrored={true} style={{borderRadius:"30px", border:"1px solid #4f464b"}}/>
+          <Webcam className="webcam-wrapper" ref={webcamRef} mirrored={true} style={{borderRadius:"30px"}}/>
           <Canvas toneMappingExposure={2} ref={canvasRef} camera={{fov:75, position: [0, 0, 0.5] }} className="canvas-wrapper">
             <Suspense fallback={null}>
               <Model position={[0,0,0]}/>
@@ -239,7 +239,7 @@ function BulgariRing() {
             <Button disableRipple={true} sx={{color: "#4f464b", "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Catalog</Button>
             </Grid>
             <Grid item xs={8}>
-            <Paper sx={{borderRadius:"50px", background:"transparent"}} style={{height:"70vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}} elevation={0}>
+            <Paper sx={{borderRadius:"50px", background:"transparent"}} style={{height:"65vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}} elevation={0}>
                     {renderRingTracking ? <RingTracking stopCamera={!renderRingTracking}/> : <Model3D/>}
                 </Paper>
             </Grid>
