@@ -21,7 +21,7 @@ function ProductCard(props) {
     let navigate = useNavigate();
     return (
         <ThemeProvider theme={theme}>
-            <Card onClick={() => {navigate(linkTo);}} sx={{border:"1px solid #4f464b", boxShadow:"none", background:"transparent"}}>
+            <Card onClick={() => {navigate(linkTo);}} sx={{border:"1px solid #4f464b", boxShadow:"none", borderRadius:"50px" , background:"transparent"}}>
                 <CardMedia
                     component="img"
                     alt={alt}

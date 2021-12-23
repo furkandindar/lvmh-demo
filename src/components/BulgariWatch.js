@@ -90,10 +90,11 @@ function Model3D(props){
     return <model-viewer
     bounds="tight"
     src="https://duz6y1s4uiy9h.cloudfront.net/LV_Watch_web_v2.glb"
-    ar ar-modes="webxr scene-viewer quick-look" 
+    ar-modes="quick-look"
+    ar-scale
     camera-controls 
     environment-image="https://duz6y1s4uiy9h.cloudfront.net/mix_hdr2.hdr" 
-    poster="https://duz6y1s4uiy9h.cloudfront.net/bulgari_watch_poster.webp" 
+    poster="./Bulgari_logo_01.png"
     shadow-intensity="1" 
     exposure="1.5" 
     camera-orbit="721.1deg 80.59deg auto"
@@ -173,7 +174,7 @@ function WristTracking(props){
 
     return (
             <div className="outer-div">
-            <Webcam className="webcam-wrapper"  ref={webcamRef} mirrored={true}></Webcam>
+            <Webcam className="webcam-wrapper"  ref={webcamRef} mirrored={true} style={{borderRadius:"30px", border:"1px solid #4f464b"}}></Webcam>
             <Canvas className="canvas-wrapper">
                 <Suspense fallback={null}>
                     <Model></Model>
@@ -207,14 +208,20 @@ function BulgariWatch() {
     const isMobile = !useMediaQuery(themeResponsive.breakpoints.up('sm'));
 
     if(renderWristTracking){
-        button = <a href="#" class="fancy-button bg-gradient1" onClick={() => {setRenderWristTracking(!renderWristTracking)}}><span><img src="./viewinar_01.png"/>See in your space</span></a>
+        button = <a href="#" class="fancy-button bg-gradient1" onClick={() => {setRenderWristTracking(!renderWristTracking)}}><span class="span2"><img class="img2" src="./close.png"/></span></a>
     }else{
         if(isMobile){
             button = <a href="https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=8c88d4a54ebc421db7c2cf15c2338953&metadata=01" class="fancy-button bg-gradient3"><span><img src="./snap_01.png"/>TRY ON</span></a>
         }else{
-            button = <a href="#" class="fancy-button bg-gradient3" onClick={() => {setRenderWristTracking(!renderWristTracking)}}><span><img src="./snap_01.png"/>TRY ON</span></a>
+            button = <a href="#" class="fancy-button bg-gradient3" onClick={() => {setRenderWristTracking(!renderWristTracking)}}><span><img src="./viewinar_01.png"/>TRY ON</span></a>
         }
     }
+
+    function viewInArButton(){
+        var mv = document.getElementById("arbutton");
+        mv.click();
+      }
+
     return (
         <ThemeProvider theme={theme}>
         <Grid
@@ -224,14 +231,16 @@ function BulgariWatch() {
             alignItems="stretch"
             >
             <Grid item xs={2}>
-                <Button disableRipple={true} sx={{color: "#4f464b", "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Products</Button>
+                <Button disableRipple={true} sx={{color: "#4f464b", "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Catalog</Button>
             </Grid>
             <Grid item xs={8}>
-                <Paper style={{height:"70vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}}>
+            <Paper sx={{borderRadius:"50px", background:"transparent"}} style={{height:"70vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}} elevation={0}>
                     {renderWristTracking ? <WristTracking renderWristTracking={renderWristTracking}/> : <Model3D/>}
                 </Paper>
             </Grid>
             <Grid item container justifyContent="center"  xs={2}>
+                {isMobile ? <a onClick={viewInArButton} class="fancy-button bg-gradient1"><span><img className="seeinyourspace" src="./seeinyourspace.png"/>View in your space</span></a> : null}
+                    <a id="arbutton" href="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_Web_V6.usdz" style={{display:"none"}} rel="ar"> <img /></a>
                 {button}
             </Grid>
         </Grid>

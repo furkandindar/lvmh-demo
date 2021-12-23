@@ -89,9 +89,10 @@ var hand_info = null;
 function Model3D(props){
     return <model-viewer 
     src="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_B.zero1_Ring_final_version.glb"
-    poster="https://duz6y1s4uiy9h.cloudfront.net/bulgari_ringposter.webp"
+    poster="./Bulgari_logo_01.png"
     environment-image="https://duz6y1s4uiy9h.cloudfront.net/mix_hdr2.hdr" 
-    ar ar-modes="webxr scene-viewer quick-look" 
+    ar-modes="quick-look"
+    ar-scale 
     shadow-intensity="1" 
     exposure="2" 
     max-field-of-view="90deg" 
@@ -192,7 +193,7 @@ function RingTracking(props){
         {/* {showHand ? <div className="webcam-wrapper" style={{zIndex:100}}>
                 <h1>SHOW YOUR HAND</h1>
         </div> : null} */}
-          <Webcam className="webcam-wrapper" ref={webcamRef} mirrored={true}/>
+          <Webcam className="webcam-wrapper" ref={webcamRef} mirrored={true} style={{borderRadius:"30px", border:"1px solid #4f464b"}}/>
           <Canvas toneMappingExposure={2} ref={canvasRef} camera={{fov:75, position: [0, 0, 0.5] }} className="canvas-wrapper">
             <Suspense fallback={null}>
               <Model position={[0,0,0]}/>
@@ -212,14 +213,20 @@ function BulgariRing() {
     const isMobile = !useMediaQuery(themeResponsive.breakpoints.up('sm'));
 
     if(renderRingTracking){
-      button = <a href="#" class="fancy-button bg-gradient1" onClick={() => {setRenderRingTracking(!renderRingTracking)}}><span><img src="./viewinar_01.png"/>See in your space</span></a>
+      button = <a href="#" class="fancy-button bg-gradient1" onClick={() => {setRenderRingTracking(!renderRingTracking)}}><span class="span2"><img class="img2" src="./close.png"/></span></a>
   }else{
       if(isMobile){
           button = <a href="https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=ea42f6c40d024548a2c2b96a4d336d43&metadata=01" class="fancy-button bg-gradient3"><span><img src="./snap_01.png"/>TRY ON</span></a>
       }else{
-          button = <a href="#" class="fancy-button bg-gradient3" onClick={() => {setRenderRingTracking(!renderRingTracking)}}><span><img src="./snap_01.png"/>TRY ON</span></a>
+          button = <a href="#" class="fancy-button bg-gradient3" onClick={() => {setRenderRingTracking(!renderRingTracking)}}><span><img src="./viewinar_01.png"/>TRY ON</span></a>
       }
   }
+
+  function viewInArButton(){
+    var mv = document.getElementById("arbutton");
+    mv.click();
+  }
+
     return (
       <ThemeProvider theme={theme}>
         <Grid
@@ -229,14 +236,16 @@ function BulgariRing() {
             alignItems="stretch"
             >
             <Grid item xs={2}>
-            <Button disableRipple={true} sx={{color: "#4f464b", "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Products</Button>
+            <Button disableRipple={true} sx={{color: "#4f464b", "&.MuiButtonBase-root:hover": {bgcolor: "transparent"}}} size="large" startIcon={<ArrowBackIosNewIcon/>} onClick={() => {navigate("/");}}>Catalog</Button>
             </Grid>
             <Grid item xs={8}>
-                <Paper style={{height:"70vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden"}}>
+            <Paper sx={{borderRadius:"50px", background:"transparent"}} style={{height:"70vh", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", overflowY:"hidden", overflowX:"hidden"}} elevation={0}>
                     {renderRingTracking ? <RingTracking stopCamera={!renderRingTracking}/> : <Model3D/>}
                 </Paper>
             </Grid>
             <Grid item container justifyContent="center"  xs={2}>
+                {isMobile ? <a onClick={viewInArButton} class="fancy-button bg-gradient1"><span><img className="seeinyourspace" src="./seeinyourspace.png"/>View in your space</span></a> : null}
+                    <a id="arbutton" href="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_Web_V6.usdz" style={{display:"none"}} rel="ar"> <img /></a>
                 {button}
             </Grid>
         </Grid>

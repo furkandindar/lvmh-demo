@@ -20,19 +20,30 @@
   /*background: linear-gradient(to right, #52A0FD 0%, #00e2fa 80%, #00e2fa 100%);*/
 }
 
+.fancy-button .img2 {
+	position: relative;
+   margin-top: -3px;
+	margin-right: 0px;
+   top:3px;
+	left:0;
+	height: 16px;
+   width: 16px;
+}
+.fancy-button .span2 {
+  display: inline-block;
+  padding: 12px 12px;
+  border-radius: 50em;
+  position: relative;
+  z-index: 2;
+  will-change: transform, filter;
+  transform-style: preserve-3d;
+  transition: all 0.3s ease-out;
+}
 
 
 .bg-gradient3 span,
 .bg-gradient3:before {
   background: #fffb64;
-}
-
-/* General */
-.wrapper {
-  margin: 5% auto;
-  text-align: center;
-  transform-style: perserve-3d;
-  perspecive: 800px;
 }
 
 a {
@@ -45,7 +56,7 @@ a:hover, a:focus, a:active {
 /* fancy Button */
 .fancy-button {
   display: inline-block;
-  margin: 10px; /* WILL BE UPDATED */
+  margin: 20px; /* WILL BE UPDATED */
   font-family: "Jost", Helvetica, Arial, sans-serif;
   font-weight: 600;
   font-size: 12px;
@@ -84,6 +95,13 @@ a:hover, a:focus, a:active {
 	height: 16px;
    width: 16px;
 }
+
+.seeinyourspace{
+    height: 20px !important;
+    width: 20px !important;
+    top:6px !important;
+}
+
 .fancy-button span {
   display: inline-block;
   padding: 12px 30px;
