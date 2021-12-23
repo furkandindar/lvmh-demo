@@ -87,7 +87,9 @@ var rotateX = 0;
 var hand_info = null;
 
 function Model3D(props){
-    return <model-viewer id="modelviewer" src="https://duz6y1s4uiy9h.cloudfront.net/Bulgari_bracelet_MV_V5.glb"
+    return <model-viewer id="modelviewer"
+    ios-src="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_Web_V6.usdz" 
+    src="https://duz6y1s4uiy9h.cloudfront.net/Bulgari_bracelet_MV_V5.glb"
     environment-image="https://duz6y1s4uiy9h.cloudfront.net/dresden_square_1k.hdr"
     poster="https://duz6y1s4uiy9h.cloudfront.net/bulgari_bracelet_poster_v3.webp"
     ar-modes="webxr scene-viewer quick-look"
@@ -201,6 +203,7 @@ function BulgariBracelet() {
     }
 
     function viewInArButton(){
+        console.log("clicked");
         var mv= document.getElementById('modelviewer')
 
         const t=new URL(mv.iosSrc,window.self.location.toString());
@@ -211,6 +214,7 @@ function BulgariBracelet() {
             e.setAttribute("href",t.toString());
             e.click();
             e.removeChild(n);
+            
     }
 
     return (
