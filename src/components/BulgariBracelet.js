@@ -205,7 +205,7 @@ function BulgariBracelet() {
     function viewInArButton(){
         console.log("clicked");
         var mv= document.getElementById('modelviewer')
-
+        console.log(mv.iosSrc);
         const t=new URL(mv.iosSrc,window.self.location.toString());
             const e = document.createElement("a")
             e.setAttribute("rel","ar");
