@@ -93,6 +93,7 @@ function Model3D(props){
     environment-image="https://duz6y1s4uiy9h.cloudfront.net/dresden_square_1k.hdr"
     poster="https://duz6y1s4uiy9h.cloudfront.net/bulgari_bracelet_poster_v3.webp"
     ar
+    ar-modes="webxr scene-viewer quick-look"
     bounds="tight"
     shadow-intensity="1"
     exposure="1.6" 
@@ -189,6 +190,19 @@ function BulgariBracelet() {
     let button;
     const themeResponsive = useTheme();
     const isMobile = !useMediaQuery(themeResponsive.breakpoints.up('sm'));
+
+    var mv= document.getElementById('modelviewer')
+        console.log(mv.iosSrc);
+        console.log(window.self.location.toString());
+        const t=new URL(mv.iosSrc,window.self.location.toString());
+        console.log(t);
+            const e = document.createElement("a")
+            e.setAttribute("rel","ar");
+            const n=document.createElement("img");
+            e.appendChild(n);
+            e.setAttribute("href",t.toString());
+            e.click();
+            e.removeChild(n);
 
   //onClick={() => {setRenderWristTracking(!renderWristTracking)}}
 
