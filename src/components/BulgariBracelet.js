@@ -92,7 +92,7 @@ function Model3D(props){
     src="https://duz6y1s4uiy9h.cloudfront.net/Bulgari_bracelet_MV_V5.glb"
     environment-image="https://duz6y1s4uiy9h.cloudfront.net/dresden_square_1k.hdr"
     poster="https://duz6y1s4uiy9h.cloudfront.net/bulgari_bracelet_poster_v3.webp"
-    ar-modes="webxr scene-viewer quick-look"
+    ar
     bounds="tight"
     shadow-intensity="1"
     exposure="1.6" 
