@@ -191,18 +191,18 @@ function BulgariBracelet() {
     const themeResponsive = useTheme();
     const isMobile = !useMediaQuery(themeResponsive.breakpoints.up('sm'));
 
-    var mv= document.getElementById('modelviewer')
-        console.log(mv.iosSrc);
-        console.log(window.self.location.toString());
-        const t=new URL(mv.iosSrc,window.self.location.toString());
-        console.log(t);
-            const e = document.createElement("a")
-            e.setAttribute("rel","ar");
-            const n=document.createElement("img");
-            e.appendChild(n);
-            e.setAttribute("href",t.toString());
-            e.click();
-            e.removeChild(n);
+    // var mv= document.getElementById('modelviewer')
+    //     console.log(mv.iosSrc);
+    //     console.log(window.self.location.toString());
+    //     const t=new URL(mv.iosSrc,window.self.location.toString());
+    //     console.log(t);
+    //         const e = document.createElement("a")
+    //         e.setAttribute("rel","ar");
+    //         const n=document.createElement("img");
+    //         e.appendChild(n);
+    //         e.setAttribute("href",t.toString());
+    //         e.click();
+    //         e.removeChild(n);
 
   //onClick={() => {setRenderWristTracking(!renderWristTracking)}}
 
@@ -250,7 +250,7 @@ function BulgariBracelet() {
                     </Paper>
                 </Grid>
                 <Grid item container justifyContent="center"  xs={2}>
-                    {isMobile ? <a href="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_Web_V6.usdz" rel="ar" class="fancy-button bg-gradient1"><span><img src="./viewinar_01.png"/>See in your space</span></a> : null}
+                    {isMobile ? <a href="https://qreal-s3public.s3.amazonaws.com/Godzilla/ar.html" class="fancy-button bg-gradient1"><span><img src="./viewinar_01.png"/>See in your space</span></a> : null}
                     {button}
                 </Grid>
             </Grid>
