@@ -272,7 +272,7 @@ function BulgariBracelet() {
                 </Grid>
                 <Grid item container justifyContent="center"  xs={2}>
                     {isMobile ? <a onClick={viewInArButton} class="fancy-button bg-gradient1"><span><img src="./viewinar_01.png"/>See in your space</span></a> : null}
-                    <a id="arbutton" href="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_Web_V6.usdz" style={{display:none}} rel="ar"> <img /></a>
+                    <a id="arbutton" href="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_Web_V6.usdz" style={{display:"none"}} rel="ar"> <img /></a>
                     {button}
                 </Grid>
             </Grid>
