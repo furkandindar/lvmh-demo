@@ -20,7 +20,15 @@ import { createTheme, ThemeProvider} from "@mui/material/styles";
 
 function Loader() {
     const { progress } = useProgress()
-    return <Html center>{progress} % loaded</Html>
+    return <Html center><div class="blobs">
+	<div class="blob-center"></div>
+	<div class="blob"></div>
+	<div class="blob"></div>
+	<div class="blob"></div>
+	<div class="blob"></div>
+	<div class="blob"></div>
+	<div class="blob"></div>
+</div></Html>
 }
 
 const theme = createTheme({

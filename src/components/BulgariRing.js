@@ -20,6 +20,19 @@ import { createTheme, ThemeProvider} from "@mui/material/styles";
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
+function Loader() {
+  const { progress } = useProgress()
+  return <Html center><div class="blobs">
+<div class="blob-center"></div>
+<div class="blob"></div>
+<div class="blob"></div>
+<div class="blob"></div>
+<div class="blob"></div>
+<div class="blob"></div>
+<div class="blob"></div>
+</div></Html>
+}
+
 
 const theme = createTheme({
     typography: {
@@ -195,7 +208,7 @@ function RingTracking(props){
         </div> : null} */}
           <Webcam className="webcam-wrapper" ref={webcamRef} mirrored={true} style={{borderRadius:"30px"}}/>
           <Canvas toneMappingExposure={2} ref={canvasRef} camera={{fov:75, position: [0, 0, 0.5] }} className="canvas-wrapper">
-            <Suspense fallback={null}>
+            <Suspense fallback={<Loader/>}>
               <Model position={[0,0,0]}/>
               <Environment files="https://duz6y1s4uiy9h.cloudfront.net/mix_hdri_exp2.hdr"></Environment>
               <OrbitControls></OrbitControls>
