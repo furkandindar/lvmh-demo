@@ -34,8 +34,10 @@ function App() {
             <Route path="/serpenti_viper_necklace" element={<LVViperNecklace/>}></Route>
             <Route path="/le_magnifiche_creazioni" element={<LVNecklace/>}></Route>
           </Routes>
+          <div style={{height:"8vh", width:"100%"}}></div>
         </Grid>
-        <Grid item xs={1} sm={1} lg={2}></Grid>
+        <Grid item xs={1} sm={1} lg={2}>
+        </Grid>
       </Grid>
     </Grid>
     
