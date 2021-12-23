@@ -269,7 +269,7 @@ function BulgariBracelet() {
                         {renderWristTracking ? <WristTracking renderWristTracking={renderWristTracking}/> : <Model3D/>}
                     </Paper>
                 </Grid>
-                <Grid item container justifyContent="center"  xs={2}>
+                <Grid item container justifyContent="center"  xs={2} sx={{marginTop:"-3vmin"}}>
                 {button}
                     {isMobile ? <a onClick={viewInArButton} class="fancy-button bg-gradient1"><span><img className="seeinyourspace" src="./seeinyourspace.png"/>View in your space</span></a> : null}
                     <a id="arbutton" href="https://duz6y1s4uiy9h.cloudfront.net/Bulgari_bracelet_MV_V7.usdz" style={{display:"none"}} rel="ar"> <img /></a>
