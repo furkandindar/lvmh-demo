@@ -90,7 +90,7 @@ function Model3D(props){
     return <model-viewer id="modelviewer" src="https://duz6y1s4uiy9h.cloudfront.net/Bulgari_bracelet_MV_V5.glb"
     environment-image="https://duz6y1s4uiy9h.cloudfront.net/dresden_square_1k.hdr"
     poster="https://duz6y1s4uiy9h.cloudfront.net/bulgari_bracelet_poster_v3.webp"
-    ar ar-modes="webxr scene-viewer quick-look"
+    ar-modes="webxr scene-viewer quick-look"
     bounds="tight"
     shadow-intensity="1"
     exposure="1.6" 
