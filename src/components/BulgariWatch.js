@@ -248,6 +248,7 @@ function BulgariWatch() {
                 {button}
                 {isMobile ? <a onClick={viewInArButton} class="fancy-button bg-gradient1"><span><img className="seeinyourspace" src="./seeinyourspace.png"/>View in your space</span></a> : null}
                     <a id="arbutton" href="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_Web_V6.usdz" style={{display:"none"}} rel="ar"> <img /></a>
+                    <div style={{height:"8vh", width:"100%"}}></div>
             </Grid>
         </Grid>
         </ThemeProvider>
