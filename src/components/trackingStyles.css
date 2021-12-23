@@ -56,6 +56,8 @@ a:hover, a:focus, a:active {
 .fancy-button {
   display: inline-block;
   margin-top: 20px; /* WILL BE UPDATED */
+  margin-right: 5px; /* WILL BE UPDATED */
+  margin-left: 5px; /* WILL BE UPDATED */
   font-family: "Jost", Helvetica, Arial, sans-serif;
   font-weight: 600;
   font-size: 12px;
