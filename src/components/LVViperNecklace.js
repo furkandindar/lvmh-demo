@@ -21,12 +21,12 @@ const theme = createTheme({
 function Model3D(props){
     return <model-viewer 
     bounds="tight" 
-    src="https://duz6y1s4uiy9h.cloudfront.net/Viper_Necklece_02_1.glb" 
+    src="https://duz6y1s4uiy9h.cloudfront.net/Viper_Necklece_final.glb" 
     ar-modes="quick-look"
     ar-scale
     camera-controls poster="./Bulgari_logo_01.png" 
     shadow-intensity="1" 
-    exposure="1.1" 
+    exposure="1.4" 
     camera-target="0m 0m 0m"
     camera-orbit="412.3deg 71.46deg 50%" 
     environment-image="https://duz6y1s4uiy9h.cloudfront.net/dresden_square_1k.hdr" 
@@ -73,7 +73,7 @@ function LVViperNecklace() {
                 {button}
                 {isMobile ? <a href="https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=46710ac54c904bd6a0931fe03e4283b4&metadata=01" class="fancy-button bg-gradient3"><span><img src="./snap_01.png"/>TRY ON</span></a> : null}
                 {isMobile ? <a onClick={viewInArButton} class="fancy-button bg-gradient1"><span><img className="seeinyourspace" src="./seeinyourspace.png"/>View in your space</span></a> : null}
-                    <a id="arbutton" href="https://duz6y1s4uiy9h.cloudfront.net/Viper_Necklece_02_1.usdz" style={{display:"none"}} rel="ar"> <img /></a>
+                    <a id="arbutton" href="https://duz6y1s4uiy9h.cloudfront.net/Viper_Necklece_11.usdz" style={{display:"none"}} rel="ar"> <img /></a>
                     <div style={{height:"8vh", width:"100%"}}></div>
             </Grid>
         </Grid>
