@@ -42,7 +42,7 @@ const theme = createTheme({
 });
 
 const Model = () => {
-    const gltf = useLoader(GLTFLoader, "https://duz6y1s4uiy9h.cloudfront.net/Bulgari_bracelet__ThreeV3.glb");
+    const gltf = useLoader(GLTFLoader, "https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/Bulgari_bracelet__ThreeV3.glb");
     const modelRef = useRef();
 
     const model = gltf.scene;
@@ -101,9 +101,9 @@ var hand_info = null;
 
 function Model3D(props){
     return <model-viewer
-    ios-src="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_Web_V6.usdz" 
-    src="https://duz6y1s4uiy9h.cloudfront.net/Bulgari_bracelet_MV_V5.glb"
-    environment-image="https://duz6y1s4uiy9h.cloudfront.net/dresden_square_1k.hdr"
+    ios-src="https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/Bvlgari_Web_V6.usdz" 
+    src="https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/Bulgari_bracelet_MV_V5.glb"
+    environment-image="https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/dresden_square_1k.hdr"
     poster="./Bulgari_logo_01.png"
     ar-modes="quick-look"
     ar-scale
@@ -120,8 +120,8 @@ function Model3DHidden(){
     return <model-viewer
     id="modelviewer"
     alt="Qreal-Godzilla-1"
-    ios-src="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_Web_V6.usdz"
-    src="https://duz6y1s4uiy9h.cloudfront.net/Bulgari_bracelet_MV_V5.glb"
+    ios-src="https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/Bvlgari_Web_V6.usdz"
+    src="https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/Bulgari_bracelet_MV_V5.glb"
     auto-rotate=""
     preload=""
     poster="/images/loading.png"
@@ -205,7 +205,7 @@ function WristTracking(props){
             <Canvas className="canvas-wrapper">
                 <Suspense fallback={<Loader/>}>
                     <Model></Model>
-                    <Environment files="https://duz6y1s4uiy9h.cloudfront.net/dresden_square_1k.hdr"></Environment>
+                    <Environment files="https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/dresden_square_1k.hdr"></Environment>
                     <OrbitControls></OrbitControls>
                 </Suspense>
             </Canvas>
@@ -250,7 +250,7 @@ function BulgariBracelet() {
         mv.click();
     }
 
-    //href="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_Web_V6.usdz"
+    //href="https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/Bvlgari_Web_V6.usdz"
 
     return (
         <ThemeProvider theme={theme}>
@@ -272,7 +272,7 @@ function BulgariBracelet() {
                 <Grid item container justifyContent="center"  xs={2}>
                     {button}
                     {isMobile ? <a onClick={viewInArButton} class="fancy-button bg-gradient1"><span><img className="seeinyourspace" src="./seeinyourspace.png"/>View in your space</span></a> : null}
-                    <a id="arbutton" href="https://duz6y1s4uiy9h.cloudfront.net/Bulgari_bracelet_MV_V8.usdz" style={{display:"none"}} rel="ar"> <img /></a>
+                    <a id="arbutton" href="https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/Bulgari_bracelet_MV_V8.usdz" style={{display:"none"}} rel="ar"> <img /></a>
                     <div style={{height:"8vh", width:"100%"}}></div>
                 </Grid>
             </Grid>

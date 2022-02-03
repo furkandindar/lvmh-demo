@@ -22,10 +22,10 @@ function Model3D(props){
     return <model-viewer 
     bounds="tight" 
     minimumRenderScale="1"
-    src="https://duz6y1s4uiy9h.cloudfront.net/LeMagnifiche.glb" 
+    src="https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/LeMagnifiche.glb" 
     ar-modes="quick-look"
     ar-scale
-    camera-controls environment-image="https://duz6y1s4uiy9h.cloudfront.net/mix_hdr2.hdr" 
+    camera-controls environment-image="https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/mix_hdr2.hdr" 
     poster="./Bulgari_logo_01.png"
     shadow-intensity="0.6" 
     exposure="2" 

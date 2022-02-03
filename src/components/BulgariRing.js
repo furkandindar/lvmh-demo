@@ -43,8 +43,8 @@ const theme = createTheme({
 });
 
 const Model = () => {
-    //https://duz6y1s4uiy9h.cloudfront.net/RingTransformed.glb
-    const gltf = useLoader(GLTFLoader, "https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_B.zero1_Ring_occluder.glb");
+    //https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/RingTransformed.glb
+    const gltf = useLoader(GLTFLoader, "https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/Bvlgari_B.zero1_Ring_occluder.glb");
 
     const ref = useRef();
     const mesh = gltf.scene;
@@ -101,9 +101,9 @@ var hand_info = null;
 
 function Model3D(props){
     return <model-viewer 
-    src="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_B.zero1_Ring_final_version.glb"
+    src="https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/Bvlgari_B.zero1_Ring_final_version.glb"
     poster="./Bulgari_logo_01.png"
-    environment-image="https://duz6y1s4uiy9h.cloudfront.net/mix_hdr2.hdr" 
+    environment-image="https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/mix_hdr2.hdr" 
     ar-modes="quick-look"
     ar-scale 
     shadow-intensity="1" 
@@ -210,7 +210,7 @@ function RingTracking(props){
           <Canvas toneMappingExposure={2} ref={canvasRef} camera={{fov:75, position: [0, 0, 0.5] }} className="canvas-wrapper">
             <Suspense fallback={<Loader/>}>
               <Model position={[0,0,0]}/>
-              <Environment files="https://duz6y1s4uiy9h.cloudfront.net/mix_hdri_exp2.hdr"></Environment>
+              <Environment files="https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/mix_hdri_exp2.hdr"></Environment>
               <OrbitControls></OrbitControls>
             </Suspense>
           </Canvas>
@@ -260,7 +260,7 @@ function BulgariRing() {
             <Grid item container justifyContent="center"  xs={2}>
               {button}
                 {isMobile ? <a onClick={viewInArButton} class="fancy-button bg-gradient1"><span><img className="seeinyourspace" src="./seeinyourspace.png"/>View in your space</span></a> : null}
-                    <a id="arbutton" href="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_B_v2_Test1.usdz" style={{display:"none"}} rel="ar"> <img /></a>
+                    <a id="arbutton" href="https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/Bvlgari_B_v2_Test1.usdz" style={{display:"none"}} rel="ar"> <img /></a>
                     <div style={{height:"8vh", width:"100%"}}></div>
             </Grid>
         </Grid>

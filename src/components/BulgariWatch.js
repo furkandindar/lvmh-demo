@@ -40,7 +40,7 @@ const theme = createTheme({
 });
 
 const Model = () => {
-    const gltf = useLoader(GLTFLoader, "https://duz6y1s4uiy9h.cloudfront.net/LV_watch_transformed_v1.glb");
+    const gltf = useLoader(GLTFLoader, "https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/LV_watch_transformed_v1.glb");
     const modelRef = useRef();
 
     const model = gltf.scene;
@@ -101,11 +101,11 @@ var hand_info = null;
 function Model3D(props){
     return <model-viewer
     bounds="tight"
-    src="https://duz6y1s4uiy9h.cloudfront.net/LV_Watch_web_v2.glb"
+    src="https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/LV_Watch_web_v2.glb"
     ar-modes="quick-look"
     ar-scale
     camera-controls 
-    environment-image="https://duz6y1s4uiy9h.cloudfront.net/mix_hdr2.hdr" 
+    environment-image="https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/mix_hdr2.hdr" 
     poster="./Bulgari_logo_01.png"
     shadow-intensity="1" 
     exposure="1.5" 
@@ -191,7 +191,7 @@ function WristTracking(props){
             <Canvas className="canvas-wrapper">
                 <Suspense fallback={<Loader/>}>
                     <Model></Model>
-                    <Environment files="https://duz6y1s4uiy9h.cloudfront.net/mix_hdr2.hdr"></Environment>
+                    <Environment files="https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/mix_hdr2.hdr"></Environment>
                     <OrbitControls></OrbitControls>
                 </Suspense>
             </Canvas>
@@ -255,7 +255,7 @@ function BulgariWatch() {
             <Grid item container justifyContent="center"  xs={2}>
                 {button}
                 {isMobile ? <a onClick={viewInArButton} class="fancy-button bg-gradient1"><span><img className="seeinyourspace" src="./seeinyourspace.png"/>View in your space</span></a> : null}
-                    <a id="arbutton" href="https://duz6y1s4uiy9h.cloudfront.net/Bvlgari_Web_V6.usdz" style={{display:"none"}} rel="ar"> <img /></a>
+                    <a id="arbutton" href="https://duz6y1s4uiy9h.cloudfront.net/lvmh-demo/Bvlgari_Web_V6.usdz" style={{display:"none"}} rel="ar"> <img /></a>
                     <div style={{height:"8vh", width:"100%"}}></div>
             </Grid>
         </Grid>
